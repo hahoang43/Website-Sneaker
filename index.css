@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  
+}
+.header h2 {
+
+font-family: 'OpenSans';
+font-weight: bold;
+font-size: 50px;
+color:#000000;
+margin-left: 40px;
+}
+
+.search-container {
+  position: relative;
+  margin-top: 10px;
+  
+}
+.search-container input[type="text"] {
+    border: 1px solid #000000; 
+    border-radius: 15px;
+    width: 500px;
+    height: 45px;
+    
+    
+  }
+  
+
+.search-container button {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: #ffffff;
+ 
+}
+  
+.search-container .glyphicon {
+    font-size: 16px;
+}
+.sign button {
+  margin-top: 10px;
+  height: 40px;
+  width: 45px;
+  margin-right: 30px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 15px; 
+}
+.menu {
+  display: flex;
+  justify-content: space-around;
+  padding-left:50px;
+  align-items: center;
+  font-family: 'OpenSans';
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(0, 0, 0);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+ 
+  
+}
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.menu a:hover{
+  text-decoration: underline;
+}
+.banner {
+  width: 100%;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
