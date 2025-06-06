@@ -12,12 +12,12 @@
   padding-left: 50px;
   
 }
-.search-container {
+.search {
   position: relative;
   margin-top: 10px;
   
 }
-.search-container input[type="text"] {
+.search input[type="text"] {
     border: 1px solid #000000; 
     border-radius: 15px;
     width: 500px;
@@ -27,7 +27,7 @@
   }
   
 
-.search-container button {
+.search button {
   position: absolute;
   right: 5px;
   top: 8px;
@@ -38,7 +38,7 @@
  
 }
   
-.search-container .glyphicon {
+.search .glyphicon {
     font-size: 16px;
 }
 .sign button {
@@ -161,6 +161,7 @@
 .product-item {
   width: 240px; 
 }
+
 .footer {
   background-color: #000000;
   margin-bottom: 0;
