@@ -45,13 +45,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 30px;           /* Khoảng cách giữa các nút */
-  margin-right: 120px; /* Khoảng cách từ bên phải */
+  gap: 30px;           
+  margin-right: 120px; 
 }
 
 .sign button,
 .sign .cart-btn {
-  border: 1px solid #000000; /* Cho giống button */
+  border: 1px solid #000000; 
   text-decoration: none;
   color: inherit;
   height: 40px;
@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  padding: 0; /* Đảm bảo không bị lệch do padding */
+  padding: 0; 
   box-sizing: border-box;
   border-radius: 15px;
 }
@@ -273,4 +273,25 @@ body {
 }
 .add-to-cart-btn:hover {
   background: #b71c1c;
+}
+.back-to-home {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999;
+    background: #111;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 28px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.back-to-home:hover {
+    background: #ffd700;
+    color: #111;
 }
