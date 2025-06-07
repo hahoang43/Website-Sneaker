@@ -4,13 +4,14 @@
     margin: 14px ;
 }
 .sidebar {
-    width: 260px;
+    width: 320px;
     background: #f2faf9;
     padding: 18px 16px;
     border-radius: 12px 12px 0 0;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     min-height: 200px;
     font-size: 18px;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 .product-area {
     flex: 1;
