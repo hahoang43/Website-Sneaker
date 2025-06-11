@@ -135,6 +135,44 @@
             background-color: rgb(21, 84, 210);
             color: white;
         }
+        .container-right > button:hover,
+        .btn-complete:hover {
+            background-color: rgb(21, 84, 210);
+            color: white;
+        }
+
+        /* CSS cho bảng sản phẩm trong thanh toán */
+        .container-left table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .container-left table th, 
+        .container-left table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .container-left table th {
+            background-color: #eddeda;
+            font-weight: bold;
+            color: #333;
+        }
+        .container-left table img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+        .container-left table tr:last-child td {
+            border-bottom: none;
+        }
+        .btn-danger {
+            padding: 6px 16px;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
@@ -158,27 +196,33 @@
             <div class="container">
                 <form id="checkout-form" action="camon.html" method="post" style="display: flex; width: 100%;">
                     <div class="container-left">
-                        <!-- Địa chỉ giao hàng -->
-                        <div class="address-section">
-                            <p class="section-title">Địa chỉ giao hàng</p>
-                            <div class="form-group">
-                                <label for="fullname">Họ và tên</label>
-                                <input type="text" id="fullname" name="fullname" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Số điện thoại</label>
-                                <input type="tel" id="phone" name="phone" class="form-control" required pattern="[0-9]{10,}">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Địa chỉ nhận hàng</label>
-                                <input type="text" id="address" name="address" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="note">Ghi chú (tuỳ chọn)</label>
-                                <textarea id="note" name="note" class="form-control" rows="2"></textarea>
-                            </div>
-                        </div>
+                      <table>
+    <tr>
+        <th>Sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Màu</th>
+        <th>Size</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+        <th>Xóa</th>
+    </tr>
+    <tr>
+        <td><img src="sanpham/sp1.jpg" alt="Sản phẩm 1"></td>
+        <td>Nike SB<br>Dunk Low<br>'Jarritos'</td>
+        <td>Đen</td>
+        <td>42</td>
+        <td>2</td>
+        <td>1.200.000 VNĐ</td>
+        <td><button class="btn btn-danger">Xóa</button></td>
+    </tr>
+    
+    <tr>
+        <td colspan="5" style="text-align:right; font-weight:bold;">Tổng thanh toán:</td>
+        <td id="total-price" style="font-weight:bold; color:#d0021b;">1.200.000 VNĐ</td>
+        <td></td>
+    </tr>
 
+</table>
                         <!-- Phương thức giao hàng & thanh toán -->
                         <div class="payment-content-left-method-delivery">
                             <p class="section-title">Phương thức giao hàng</p>
@@ -253,5 +297,16 @@
     </div>
     <div id="footer"></div>
     <script src="js/include.js"></script>
+<script>
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.product-row').forEach(row => {
+            const priceText = row.querySelector('.product-price').innerText.replace(/[^\d]/g, '');
+            const quantity = parseInt(row.querySelector('.product-qty').innerText);
+            total += parseInt(priceText) * quantity;
+        });
+        document.getElementById('total-price').innerText = total.toLocaleString('vi-VN') + ' VNĐ';
+    }
+</script>
 </body>
 </html>
