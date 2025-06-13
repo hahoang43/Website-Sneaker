@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập & Đăng ký</title>
+    <link rel="stylesheet" href="dangnhap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="auth-bg">
+    <div id="header"></div>
+    <div class="auth-background">
+    <div class="auth-container">
+        <!-- Đăng nhập -->
+        <form class="login-form">
+            <h2>Đăng nhập</h2>
+            <label for="login-email">Tên tài khoản hoặc địa chỉ email *</label>
+            <input id="login-email" type="text" placeholder="Nhập email hoặc tên tài khoản" required>
+            <label for="login-password">Mật khẩu *</label>
+            <input id="login-password" type="password" placeholder="Nhập mật khẩu" required>
+            <div class="form-extra">
+                <label class="checkbox-label">
+                    <input type="checkbox"> Ghi nhớ mật khẩu
+                </label>
+            </div>
+            <button type="submit">ĐĂNG NHẬP</button>
+            <div class="form-link">
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </form>
+        <!-- Đăng ký -->
+        <form class="register-form">
+            <h2>Đăng ký</h2>
+            <label for="register-email">Địa chỉ email *</label>
+            <input id="register-email" type="email" placeholder="Nhập email" required>
+            <label for="register-password">Mật khẩu *</label>
+            <input id="register-password" type="password" placeholder="Nhập mật khẩu" required>
+            <button type="submit">ĐĂNG KÝ</button>
+        </form>
+    </div>
+    </div>
+    <div id="footer"></div>
+    <script src="js/include.js"></script>
+</body>
+</html>
