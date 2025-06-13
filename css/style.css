@@ -1,0 +1,379 @@
+.cart {
+    padding: 50px 0;
+}
+
+.cart-top-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.cart-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2px;
+    width: 70%;
+    background-color: #480101;
+    position: relative; 
+}
+.step-cart,
+.step-fill,
+.step-payment {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    
+}
+.step-cart i {
+color:rgba(22, 5, 132, 0.826)
+  }
+ .step-fill i {
+                color: #fd0404;
+ }
+.step-payment i {
+    color: #074081;
+ }
+/* Gio hang */
+.container {
+    display: flex;
+    width: 95%;
+    margin-left: 25px; 
+    margin-bottom: 50px }
+.container-left {
+    flex: 2;
+}
+
+.container-left table {
+    
+    width: 100%;
+    border-collapse: collapse; }
+
+.container-left table th,
+.container-left table td {
+    color: #8d0000;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgb(1, 0, 0) ;
+}
+
+.container-left table th {
+    background-color: #f8ebeb;
+    font-weight: bold;
+    
+}
+
+.container-left table img {
+    width: 100px;
+    height: auto;
+ }
+
+
+.container-right {
+    flex: 1;
+    padding-left: 30px;
+    
+    
+}
+
+.container-right table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    
+}
+
+.container-right table th,
+.container-right table td {
+    color: #8d0000;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #030000; 
+   
+}
+
+.container-right table th {
+    background-color: #f8ebeb;
+    font-weight: bold;
+   
+}
+
+.container-right-button {
+    display: flex;
+    justify-content: space-between
+}
+            
+.container-right-button button {   
+                padding: 10px 20px;
+                font-size: 16px;
+            
+            }
+
+.btn-delete {
+    background: #d0021b;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+
+.btn-continue {
+    background: #102d98;
+    color: #fdf4f4;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+
+.btn-checkout {
+    background: #01563b;
+    color: #fdf4f4;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+/* Trang giao hàng */
+ .active-step {
+            background-color: #fd0404 !important;
+            box-shadow: 0 0 15px rgba(253, 4, 4, 0.5);
+            transform: scale(1.15) translateX(-50%);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .active-step i {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .shipping-form {
+            width: 70%;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #eddeda;
+        }
+
+        .shipping-form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .form-group input,
+        .form-group select {
+            height: 40px;
+            border: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            border-color: #fd0404;
+            box-shadow: 0 0 5px rgba(253, 4, 4, 0.4);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+            .btn-group .btn-default {
+                background-color: #000;
+                color: white;
+                border: none;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .btn-group .btn-success {
+                background-color: #fd0404;
+                color: white;
+                border: none;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .btn-group .btn-default:hover {
+                background-color: #333;
+                transform: scale(1.05);
+            }
+
+            .btn-group .btn-success:hover {
+                background-color: #e00303;
+                transform: scale(1.05);
+            }
+/* Trang thanh toán */
+.total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-right: 30px;
+    font-weight: bold;
+    color: #900; 
+    font-size: 18px;
+}
+
+.right {
+    width: 100%;
+    padding: 24px;
+    margin-left: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+   
+}
+
+.right-button {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.right-button input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.right-button button {
+    background-color: #d0021b;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    
+}
+
+
+.section-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 20px 0 10px;
+}
+
+.payment-content-left-method-delivery-item,
+.payment-content-left-method-payment-item {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-logo-row {
+    margin-left: 28px;
+    margin-bottom: 20px;
+}
+
+.btn-return,
+.btn-complete {
+    padding: 10px 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    
+}
+
+.btn-return {
+    background-color: #102d98;
+    color: rgb(255, 255, 255);
+    margin-right: 12px;
+}
+
+.btn-complete {
+    background-color: #d0021b;
+    color: white;
+}
+
+
+/* Trang giao hang */
+        .shipping-form {
+            width: 70%;
+            margin-bottom: 40px;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #eddeda;
+        }
+
+        .shipping-form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #000;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-control:focus {
+            border-color: #fd0404;
+            box-shadow: 0 0 5px rgba(253, 4, 4, 0.4);
+            outline: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn-group .btn-default {
+            background-color: #1638a8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .btn-group .btn-success {
+            background-color: #fd0404 ;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            
+            
+        }
+
+    
+      

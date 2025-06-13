@@ -59,59 +59,55 @@
         </div>
     </div>
 </div>
+ <div class="shipping-form">
+            <h3>Thông tin giao hàng</h3>
+            <form>
+                <div class="form-group">
+                    <label for="fullname">Họ và tên</label>
+                    <input type="text" class="form-control" id="fullname" placeholder="Nhập họ và tên">
+                </div>
 
-    <!-- Gio hang san pham -->
-     
-            <div class="container">
-                <div class="container-left">
-                    <table>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Màu</th>
-                            <th>Size</th>
-                            <th>Số lượng</th>
-                            <th>Thành tiền</th>
-                            <th>Xóa</th>
-                        </tr>
-                        <tr>
-                            <td><img src="sanpham/sp1.jpg" alt="Sản phẩm 1"></td>
-                            <td>Nike SB Dunk Low 'Jarritos'</td>
-                            <td>Đen</td>
-                            <td>42</td>
-                            <td>2</td>
-                            <td>1.200.000 VNĐ</td>
-                            <td><button type="button" class="btn-delete">Xóa</button></td>
-                        </tr>
-                    </table>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại">
                 </div>
-                <div class="container-right">
-                    <table>
-                        <tr>
-                            <th colspan="2">Đơn hàng</th>
-                        </tr>
-                        <tr>
-                            <td>Tổng sản phẩm:</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Tổng tiền:</td>
-                            <td>1.200.000 VNĐ</td>
-                        </tr>
-                        <tr>
-                            <td>Tạm tính:</td>
-                            <td><p style="color: black; font-weight: bold;">1.200.000 VNĐ</p></td>
-                        </tr>
-                    </table>
-                    <div class="container-right-button ">
-                        <button type="button" class="btn-continue"  onclick="window.location.href='index.html'">Tiếp tục mua sắm</button>
-                        <button type="button" class="btn-checkout" onclick="window.location.href='giaohang.html'">Thanh toán</button>
-                    </div>
+
+                <div class="form-group">
+                    <label for="city">Tỉnh/Thành phố</label>
+                    <select class="form-control" id="tinh">
+                        <option value="">-- Chọn tỉnh/thành --</option>
+
+
+                    </select>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="district">Quận/Huyện</label>
+                    <select class="form-control" id="huyen">
+                        <option>-- Chọn quận/huyện --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ward">Phường/Xã</label>
+                    <select class="form-control" id="xa">
+                        <option>-- Chọn phường/xã --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ giao hàng</label>
+                    <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ cụ thể">
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" onclick="window.location.href='giohang.html'">Quay lại giỏ hàng</button>
+                    <button type="button" class="btn btn-success" onclick="window.location.href='thanhtoan.html'">Tiếp tục thanh toán</button>
+                </div>
+            </form>
         </div>
+    </div>
 
- <!-- Footer -->
+<!-- Footer -->
 <div class="footer">
     <div class="footer-row">
         <div class="footer-col">
@@ -142,5 +138,8 @@
         </div>
     </div>
 </div>
-    </body>
+    <script src="js/load-address.js"></script>
+    
+
+</body>
 </html>
