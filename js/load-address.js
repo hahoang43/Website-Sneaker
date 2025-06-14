@@ -7,9 +7,9 @@ let tinhData = {}, huyenData = {}, xaData = {};
 // Load JSON
 async function loadJSON() {
   const [tinh, huyen, xa] = await Promise.all([
-    fetch("js/tinh_tp.json").then(res => res.json()),
-    fetch("js/quan_huyen.json").then(res => res.json()),
-    fetch("js/xa_phuong.json").then(res => res.json())
+    fetch("../js/tinh_tp.json").then(res => res.json()),
+    fetch("../js/quan_huyen.json").then(res => res.json()),
+    fetch("../js/xa_phuong.json").then(res => res.json())
   ]);
   tinhData = tinh;
   huyenData = huyen;
