@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>SNEAKERS</title>
+    <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="dangnhap.css">
 </head>
 
 <body>
@@ -44,36 +44,42 @@
         <a href="danhmuc/phukiengiay.html"> Phụ kiện giày</a>
     </div>
 
-    <div class="auth-background">
-    <div class="auth-container">
-        <!-- Đăng nhập -->
-        <form class="login-form">
-            <h2>Đăng nhập</h2>
-            <label for="login-email">Tên tài khoản hoặc địa chỉ email *</label>
-            <input id="login-email" type="text" placeholder="Nhập email hoặc tên tài khoản" required>
-            <label for="login-password">Mật khẩu *</label>
-            <input id="login-password" type="password" placeholder="Nhập mật khẩu" required>
-            <div class="form-extra">
-                <label class="checkbox-label">
-                    <input type="checkbox"> Ghi nhớ mật khẩu
-                </label>
+    <!-- Auth Section -->
+    <div class="auth-bg">
+        <div class="auth-container">
+            <div class="auth-left">
+                <img src="/anh-banner/logo.jpg" alt="Logo">
+                <h1>SNEAKERS</h1>
+                <p>Đăng nhập để kết nối với cộng đồng Sneaker Việt Nam.</p>
             </div>
-            <button type="submit">ĐĂNG NHẬP</button>
-            <div class="form-link">
-                <a href="#">Quên mật khẩu?</a>
+            <div class="auth-right">
+                <!-- Đăng nhập -->
+                <form class="login-form auth-form" id="login-form">
+                    <input id="login-email" type="text" placeholder="Email hoặc số điện thoại" required>
+                    <input id="login-password" type="password" placeholder="Mật khẩu" required>
+                    <button type="submit" class="btn-login">Đăng nhập</button>
+                    <a href="#" class="link" id="show-forgot">Quên mật khẩu?</a>
+                    <hr>
+                    <button type="button" class="btn-register" id="show-register">Tạo tài khoản mới</button>
+                </form>
+                <!-- Đăng ký -->
+                <form class="register-form auth-form" id="register-form" style="display:none;">
+                    <input id="register-email" type="email" placeholder="Email" required>
+                    <input id="register-password" type="password" placeholder="Mật khẩu" required>
+                    <input id="register-password2" type="password" placeholder="Nhập lại mật khẩu" required>
+                    <button type="submit" class="btn-login">Đăng ký</button>
+                    <a href="#" class="link" id="back-login1">Quay lại đăng nhập</a>
+                </form>
+                <!-- Quên mật khẩu -->
+                <form class="forgot-form auth-form" id="forgot-form" style="display:none;">
+                    <input id="forgot-email" type="email" placeholder="Nhập email để lấy lại mật khẩu" required>
+                    <button type="submit" class="btn-login">Gửi yêu cầu</button>
+                    <a href="#" class="link" id="back-login2">Quay lại đăng nhập</a>
+                </form>
             </div>
-        </form>
-        <!-- Đăng ký -->
-        <form class="register-form">
-            <h2>Đăng ký</h2>
-            <label for="register-email">Địa chỉ email *</label>
-            <input id="register-email" type="email" placeholder="Nhập email" required>
-            <label for="register-password">Mật khẩu *</label>
-            <input id="register-password" type="password" placeholder="Nhập mật khẩu" required>
-            <button type="submit">ĐĂNG KÝ</button>
-        </form>
+        </div>
     </div>
-    </div>
+
  <!-- Footer -->
 <div class="footer">
     <div class="footer-row">
@@ -105,6 +111,6 @@
         </div>
     </div>
 </div>
-
+<script src="js/dangnhap.js"></script>
 </body>
 </html>
