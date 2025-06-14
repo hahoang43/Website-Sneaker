@@ -1,0 +1,9 @@
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const keyword = params.get("q");
+
+  document.getElementById("search-keyword").textContent = keyword;
+
+  // Gọi API hoặc filter danh sách sản phẩm (giả sử bạn có biến `products`)
+  // const results = products.filter(p => p.name.includes(keyword));
+</script>
