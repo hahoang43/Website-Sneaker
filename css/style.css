@@ -425,7 +425,7 @@ color:rgba(22, 5, 132, 0.826)
 }
 .auth-left {
     flex: 1;
-    margin-right: 40px;
+    margin-right: 150px;
     text-align: center;
 }
 .auth-left img {
@@ -444,18 +444,19 @@ color:rgba(22, 5, 132, 0.826)
     color: #1c1e21;
 }
 .auth-right {
-    background: #fff;
+    background: #eddeda;
     padding: 32px 24px 24px 24px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 360px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .auth-form input {
     width: 100%;
-    padding: 14px 12px;
+    padding: 12px 0px;
     margin-bottom: 12px;
     border: 1px solid #dddfe2;
     border-radius: 6px;
@@ -463,8 +464,8 @@ color:rgba(22, 5, 132, 0.826)
 }
 .btn-login, .btn-register {
     width: 100%;
-    background: #1877f2;
-    color: #fff;
+    background: #99b51067;
+    color: #000000;
     font-size: 20px;
     padding: 12px 0;
     border: none;
@@ -474,10 +475,10 @@ color:rgba(22, 5, 132, 0.826)
     cursor: pointer;
 }
 .btn-register {
-    background: #42b72a;
+    background: #d23e2490;
     font-size: 17px;
-    width: 70%;
-    padding: 10px 0;
+    width: 100%;
+    padding: 12px 0;
 }
 .link {
     color: #1877f2;
