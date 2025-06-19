@@ -14,10 +14,10 @@ if (!$username || !$email || !$password) {
 
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $username, $email, $hashed);
+$stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+$stmt->execute([$username, $email, $hashed]);
 
-if ($stmt->execute()) {
+if ($stmt->rowCount()) {
     echo json_encode(["status" => "success", "message" => "Đăng ký thành công"]);
 } else {
     echo json_encode(["status" => "error", "message" => "Email hoặc username đã tồn tại"]);

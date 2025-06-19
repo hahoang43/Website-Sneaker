@@ -17,4 +17,3 @@ try {
      die("Kết nối thất bại: " . $e->getMessage());
 }
 ?>
-<?php
