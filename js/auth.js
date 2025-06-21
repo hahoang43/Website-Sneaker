@@ -1,23 +1,32 @@
+// 🔧 Tự động xác định đường dẫn tới giỏ hàng
+let gioHangLink = '';
+if (window.location.pathname.includes('/page/')) {
+  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
+} else {
+  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html'; // vẫn là đường dẫn tuyệt đối
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   (async () => {
     try {
       const res = await fetch('/PRJ/Website-Sneaker/backend/auth/check_login.php');
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const result = await res.json();
+
       const signDiv = document.querySelector('.sign');
       if (!signDiv) return;
 
-      const gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
-
       if (result.loggedIn) {
+        // Render giao diện sau khi đăng nhập
         signDiv.innerHTML = `
           <div class="user-dropdown-wrapper">
-            <div class="user-dropdown position-relative">
+            <div class="user-dropdown">
               <button class="cart-btn user-icon" id="toggleDropdown">
                 <i class="fa-solid fa-user"></i>
               </button>
-              <div class="username" style="font-size: 0.9rem; color: #611313;">${result.username}</div>
-              <ul class="dropdown-menu position-absolute" id="dropdownMenu" style="display:none; right:0; top:100%;">
-                <li><a class="dropdown-item" href="/PRJ/Website-Sneaker/page/profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
+              <div class="username">${result.username}</div>
+              <ul class="dropdown-menu" id="dropdownMenu">
+                <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
                 <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
               </ul>
             </div>
@@ -25,37 +34,34 @@ window.addEventListener('DOMContentLoaded', () => {
           <a href="${gioHangLink}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
 
-        // Toggle dropdown
-        const toggleBtn = document.getElementById('toggleDropdown');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-
-        toggleBtn.addEventListener('mouseenter', () => {
-          dropdownMenu.style.display = 'block';
-        });
-
-        toggleBtn.addEventListener('mouseleave', () => {
-          setTimeout(() => dropdownMenu.style.display = 'none', 300);
-        });
-
-        dropdownMenu.addEventListener('mouseenter', () => {
-          dropdownMenu.style.display = 'block';
-        });
-
-        dropdownMenu.addEventListener('mouseleave', () => {
-          dropdownMenu.style.display = 'none';
-        });
-
-        // Logout
+        // Đăng xuất
         document.getElementById('logout-btn').addEventListener('click', async (e) => {
           e.preventDefault();
           await fetch('/PRJ/Website-Sneaker/backend/auth/logout.php');
-          window.location.href = '/PRJ/Website-Sneaker/page/dangnhap.html';
+          window.location.href = 'dangnhap.html';
+        });
+
+        // Toggle dropdown bằng click
+        const toggleBtn = document.getElementById('toggleDropdown');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Không lan ra ngoài
+          dropdownMenu.classList.toggle('show');
+        });
+
+        // Click ngoài dropdown → đóng menu
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+          }
         });
 
       } else {
+        // Nếu chưa đăng nhập
         signDiv.innerHTML = `
-          <a href="/PRJ/Website-Sneaker/page/dangnhap.html" class="cart-btn"><i class="fa-solid fa-user"></i></a>
-          <a href="${gioHangLink}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="dangnhap.html" class="cart-btn"><i class="fa-solid fa-user"></i></a>
+          <a href="giohang.html" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
       }
     } catch (err) {
