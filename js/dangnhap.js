@@ -1,28 +1,36 @@
 
+window.addEventListener('DOMContentLoaded', () => {
 document.getElementById('show-register').onclick = function(e) {
   e.preventDefault();
   document.getElementById('login-form').style.display = 'none';
   document.getElementById('register-form').style.display = 'block';
   document.getElementById('forgot-form').style.display = 'none';
 };
+});
+window.addEventListener('DOMContentLoaded', () => {
 document.getElementById('show-forgot').onclick = function(e) {
   e.preventDefault();
   document.getElementById('login-form').style.display = 'none';
   document.getElementById('register-form').style.display = 'none';
   document.getElementById('forgot-form').style.display = 'block';
 };
+});
+window.addEventListener('DOMContentLoaded', () => {
 document.getElementById('back-login1').onclick = function(e) {
   e.preventDefault();
   document.getElementById('login-form').style.display = 'block';
   document.getElementById('register-form').style.display = 'none';
   document.getElementById('forgot-form').style.display = 'none';
 };
+});
+window.addEventListener('DOMContentLoaded', () => {
 document.getElementById('back-login2').onclick = function(e) {
   e.preventDefault();
   document.getElementById('login-form').style.display = 'block';
   document.getElementById('register-form').style.display = 'none';
   document.getElementById('forgot-form').style.display = 'none';
 };
+});
 // ✅ XỬ LÝ ĐĂNG NHẬP
 document.getElementById('login-form').addEventListener('submit', async function(e) {
   e.preventDefault();
