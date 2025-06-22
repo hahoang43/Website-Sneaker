@@ -1,77 +1,100 @@
--- 1. Tạo cơ sở dữ liệu web-
-CREATE DATABASE IF NOT EXISTS sneakers  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE sneakers;
 
--- 2. Bảng người dùng
-CREATE TABLE users (
+-- 2. Bảng Role
+CREATE TABLE Role (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    name VARCHAR(20) NOT NULL
 );
 
--- 3. Bảng sản phẩm
-CREATE TABLE products (
+-- 3. Bảng User
+CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    price DECIMAL(10,2) NOT NULL,
-    category VARCHAR(100),
-    image VARCHAR(255),
-    stock INT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fullname VARCHAR(50) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    phone_number VARCHAR(20),
+    address VARCHAR(200),
+    password VARCHAR(100) NOT NULL,
+    role_id INT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted TINYINT DEFAULT 0,
+    FOREIGN KEY (role_id) REFERENCES Role(id)
 );
 
--- 4. Bảng giỏ hàng
-CREATE TABLE cart (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+-- 4. Bảng Tokens
+CREATE TABLE Tokens (
     user_id INT,
+    token VARCHAR(32),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, token),
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+-- 5. Bảng Category
+CREATE TABLE Category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- 6. Bảng Product
+CREATE TABLE Product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_id INT,
+    title VARCHAR(250) NOT NULL,
+    price INT NOT NULL,
+    discount INT DEFAULT 0,
+    thumbnail VARCHAR(500),
+    description LONGTEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted TINYINT DEFAULT 0,
+    FOREIGN KEY (category_id) REFERENCES Category(id)
+);
+
+-- 7. Bảng Galery
+CREATE TABLE Galery (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT,
-    quantity INT,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    thumbnail VARCHAR(500),
+    FOREIGN KEY (product_id) REFERENCES Product(id)
 );
 
--- 5. Bảng đơn hàng
-CREATE TABLE orders (
+-- 8. Bảng Feedback
+CREATE TABLE FeedBack (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(30),
+    lastname VARCHAR(30),
+    email VARCHAR(250),
+    phone_number VARCHAR(20),
+    subject_name VARCHAR(350),
+    note VARCHAR(1000),
+    status INT DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 9. Bảng Orders
+CREATE TABLE Orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    total_price DECIMAL(10,2),
-    status ENUM('pending', 'processing', 'completed', 'cancelled') DEFAULT 'pending',
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    fullname VARCHAR(50),
+    email VARCHAR(150),
+    phone_number VARCHAR(20),
+    address VARCHAR(200),
+    note VARCHAR(1000),
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status INT DEFAULT 0,
+    total_money INT DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
--- 6. Chi tiết đơn hàng
-CREATE TABLE order_items (
+-- 10. Bảng Order_Details
+CREATE TABLE Order_Details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     product_id INT,
-    quantity INT,
-    price DECIMAL(10,2),
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    price INT NOT NULL,
+    num INT NOT NULL,
+    total_money INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES Orders(id),
+    FOREIGN KEY (product_id) REFERENCES Product(id)
 );
-
--- 7. Giao hàng
-CREATE TABLE shipping (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    address TEXT NOT NULL,
-    phone VARCHAR(20),
-    shipping_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
-);
-
--- 8. Thêm tài khoản mẫu
-INSERT INTO users (username, email, password, role) VALUES
-('admin', 'admin@gmail.com', '$2y$10$S3FtoPJGk3UkB2yQCLSnEerZTwYeFzW2wqZ2x5Kkzw/JGCVPG5En2', 'admin'); -- admin123
-
--- 9. Thêm sản phẩm mẫu
-INSERT INTO products (name, description, price, category, image, stock) 
-VALUES
-('Nike Air Force 1', 'Giày sneaker cổ thấp kinh điển, chất liệu da cao cấp', 2300000, 'Sneaker', 'images/nike-air-force-1.jpg', 20),
-('Adidas Ultraboost 22', 'Giày chạy bộ êm ái, công nghệ đệm Boost', 2900000, 'Running', 'images/adidas-ultraboost-22.jpg', 15),
-('Converse Chuck Taylor', 'Giày vải cổ cao thời trang, phong cách cổ điển', 1500000, 'Casual', 'images/converse-chuck-taylor.jpg', 25);
