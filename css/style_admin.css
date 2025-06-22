@@ -1,0 +1,68 @@
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fecad7;
+  margin-bottom: 5px;
+}
+
+/* Sidebar bên trái */
+.admin-left-container {
+  float: left;
+  width: 22%;
+  min-height: 450px;
+  background-color: #f5d4e2;
+  padding: 20px;
+}
+
+/* Tiêu đề "Menu" */
+.admin-left p {
+  font-size: 26px;
+  font-weight: 700;
+  color: #090a01;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.admin-left ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-left a {
+  display: block;
+  margin: 30px 0;
+  padding: 12px 15px;
+  text-align: left;
+  text-decoration: none;
+  color: #090a01;
+  font-size: 18px;
+  background-color: #e79ac3;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
+.admin-left a:hover {
+  background-color: #d194a1;
+  color: white;
+}
+.admin-right-container {
+  float: left;
+  width: 74.5%;
+  height: 100vh;
+  background-color: #f5d4e2;
+  margin-left: 0.5%;
+}
