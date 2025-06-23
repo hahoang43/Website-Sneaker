@@ -57,6 +57,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
 // ✅ XỬ LÝ ĐĂNG KÝ
 document.getElementById('register-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  const fullname = document.getElementById('register-fullname').value;
   const email = document.getElementById('register-email').value;
   const password = document.getElementById('register-password').value;
   const confirmPassword = document.getElementById('register-password2').value;
@@ -65,8 +66,6 @@ document.getElementById('register-form').addEventListener('submit', async functi
     alert('Mật khẩu không khớp!');
     return;
   }
-
- const fullname = document.getElementById('register-fullname').value;
 
 const response = await fetch('../backend/auth/register.php', {
   method: 'POST',
