@@ -11,6 +11,13 @@ if (!$fullname || !$email || !$password) {
     echo json_encode(["status" => "error", "message" => "Vui lòng điền đầy đủ thông tin"]);
     exit;
 }
+// Kiểm tra email đã tồn tại
+$check = $pdo->prepare("SELECT id FROM User WHERE email = ?");
+$check->execute([$email]);
+if ($check->fetch()) {
+    echo json_encode(["status" => "error", "message" => "Email đã tồn tại"]);
+    exit;
+}
 
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 // Thêm user mới với role_id = 2 (user)

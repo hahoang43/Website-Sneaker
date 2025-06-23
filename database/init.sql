@@ -27,7 +27,7 @@ CREATE TABLE User (
 INSERT INTO User (fullname, email, phone_number, address, password, role_id)
 VALUES
 ('Admin 1', 'admin@gmail.com', '0123456789', '123 Admin St',
- '$2y$10$E19JUz0rOP0VRuQHFaJzKOGvm3uC2iAF47cVq9GcWfTbDJ7AYMUsa', 1), -- admin123
+ '$2y$10$fkPEcG1dQXdpCBqMlcWBnO6Q3rozNyO50qQH6FZJD8CcEFSJMYdmm', 1), -- admin123
 ('User 1', 'user@gmail.com', '0987654321', '456 User Rd',
  '$2y$10$g5tcIMxhkUdOmnIaj8rcI.2jIfZ08SHb.TmXtXPjxY/x0UMOGm.Mq', 2); -- user123
 
