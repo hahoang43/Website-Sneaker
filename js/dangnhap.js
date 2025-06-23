@@ -57,7 +57,6 @@ document.getElementById('login-form').addEventListener('submit', async function(
 // ✅ XỬ LÝ ĐĂNG KÝ
 document.getElementById('register-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-
   const email = document.getElementById('register-email').value;
   const password = document.getElementById('register-password').value;
   const confirmPassword = document.getElementById('register-password2').value;
@@ -67,13 +66,13 @@ document.getElementById('register-form').addEventListener('submit', async functi
     return;
   }
 
-  const username = email.split('@')[0]; // Lấy tên người dùng tạm thời từ email
+ const fullname = document.getElementById('register-fullname').value;
 
-  const response = await fetch('../backend/auth/register.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, email, password })
-  });
+const response = await fetch('../backend/auth/register.php', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ fullname, email, password })
+});
 
   const result = await response.json();
 

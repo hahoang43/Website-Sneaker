@@ -1,9 +1,9 @@
-// 🔧 Tự động xác định đường dẫn tới giỏ hàng
+// Tự động xác định đường dẫn tới giỏ hàng
 let gioHangLink = '';
 if (window.location.pathname.includes('/page/')) {
   gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
 } else {
-  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html'; // vẫn là đường dẫn tuyệt đối
+  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,16 +18,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
       if (result.loggedIn) {
         // Render giao diện sau khi đăng nhập
+        let dropdownItems = `
+          <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
+          <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+        `;
+
+        // Nếu là admin, thêm link quản trị
+        if (result.role === 'admin') {
+          dropdownItems = `
+            <li><a class="dropdown-item" href="admin.html"><i class="fa-solid fa-screwdriver-wrench"></i> Quản trị</a></li>
+            ${dropdownItems}
+          `;
+        }
+
         signDiv.innerHTML = `
           <div class="user-dropdown-wrapper">
             <div class="user-dropdown">
               <button class="cart-btn user-icon" id="toggleDropdown">
                 <i class="fa-solid fa-user"></i>
               </button>
-              <div class="username">${result.username}</div>
+              <div class="username">${result.fullname}</div>
               <ul class="dropdown-menu" id="dropdownMenu">
-                <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
-                <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+                ${dropdownItems}
               </ul>
             </div>
           </div>
@@ -46,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const dropdownMenu = document.getElementById('dropdownMenu');
 
         toggleBtn.addEventListener('click', (e) => {
-          e.stopPropagation(); // Không lan ra ngoài
+          e.stopPropagation();
           dropdownMenu.classList.toggle('show');
         });
 

@@ -4,7 +4,10 @@ CREATE TABLE Role (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL
 );
-
+-- 2. Thêm dữ liệu Role mẫu: admin và user
+INSERT INTO Role (id, name) VALUES
+(1, 'admin'),
+(2, 'user');
 -- 3. Bảng User
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,6 +22,14 @@ CREATE TABLE User (
     deleted TINYINT DEFAULT 0,
     FOREIGN KEY (role_id) REFERENCES Role(id)
 );
+-- 4. Thêm tài khoản mẫu: admin và user
+-- ⚠️ Mật khẩu được hash bằng password_hash trong PHP
+INSERT INTO User (fullname, email, phone_number, address, password, role_id)
+VALUES
+('Admin 1', 'admin@gmail.com', '0123456789', '123 Admin St',
+ '$2y$10$E19JUz0rOP0VRuQHFaJzKOGvm3uC2iAF47cVq9GcWfTbDJ7AYMUsa', 1), -- admin123
+('User 1', 'user@gmail.com', '0987654321', '456 User Rd',
+ '$2y$10$g5tcIMxhkUdOmnIaj8rcI.2jIfZ08SHb.TmXtXPjxY/x0UMOGm.Mq', 2); -- user123
 
 -- 4. Bảng Tokens
 CREATE TABLE Tokens (
