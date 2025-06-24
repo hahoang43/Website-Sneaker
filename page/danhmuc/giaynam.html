@@ -9,156 +9,169 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/auth.css">
 </head>
-
 <body>
     <!-- Header -->
-<div class="header">
-    <div class="logo">
-        <h2>
-            <a href="../index.html"> 
-            <img src="../../images/anh_banner/logo.jpg" > </a>  </h2>
-    </div>
-    
-     <!-- search- -->
-    <div class="search-container">
-        <input type="text" >
-        <i class="fas fa-search search-icon"></i>
+    <div class="header">
+        <div class="logo">
+            <h2>
+                <a href="../index.html"> 
+                    <img src="../../images/anh_banner/logo.jpg" alt="Logo"> 
+                </a>
+            </h2>
+        </div>
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <!-- Sign -->
+        <div class="sign">
+            <a href="../dangnhap.html" class="cart-btn">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="../giohang.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
     </div>
 
-    <!-- sign -->
-    <div class="sign">
-   <a href="../dangnhap.html" class="cart-btn">
-        <i class="fa-solid fa-user"></i>
-    </a>
-    <a href="../giohang.html" class="cart-btn">
-        <i class="fa-solid fa-cart-shopping"></i>
-    </a>
-    </div>
-</div>
-
-<!-- MENU -->
+    <!-- MENU -->
     <div class="menu">
         <a href="../index.html">Trang chủ</a>
-        <a href="giaynam.html"> Giày Nam</a>
-        <a href="giaynu.html"> Giày Nữ</a>
-        <a href="giaytreem.html"> Giày trẻ em </a>
-        <a href="phukiengiay.html"> Phụ kiện giày</a>
+        <a href="giaynam.html" class="active">Giày Nam</a>
+        <a href="giaynu.html">Giày Nữ</a>
+        <a href="giaytreem.html">Giày Trẻ Em</a>
+        <a href="phukiengiay.html">Phụ Kiện Giày</a>
     </div>
-<!-- Body -->
- <div class="main-content">
-    <div class="sidebar">
-        <form>
-            <div class="filter-group">
-                <label>Thương hiệu</label><br>
-                <input type="checkbox" name="brand" value="Nike"> Nike<br>
-                <input type="checkbox" name="brand" value="Adidas"> Adidas<br>
-                <input type="checkbox" name="brand" value="Puma"> Puma<br>
-                <input type="checkbox" name="brand" value="Khác"> Khác<br>
-            </div>
-            <div class="filter-group">
-                <label>Giá</label><br>
-                <input type="checkbox" name="price" value="duoi2tr"> Dưới 2 triệu<br>
-                <input type="checkbox" name="price" value="2-5tr"> 2 - 5 triệu<br>
-                <input type="checkbox" name="price" value="tren5tr"> Trên 5 triệu<br>
-            </div>
-            <div class="filter-group">
-                <label>Kích cỡ</label><br>
-                <input type="checkbox" name="size" value="38"> 38<br>
-                <input type="checkbox" name="size" value="39"> 39<br>
-                <input type="checkbox" name="size" value="40"> 40<br>
-                <input type="checkbox" name="size" value="41"> 41<br>
-                <input type="checkbox" name="size" value="42"> 42<br>
-            </div>
-            <button type="submit" class="btn btn-primary">Lọc</button>
-        </form>
-    </div>
-    <div class="product-list">
-    </div>
-        <div class="product-list">
-            <div class="product-item">
-        <img src="../../images/sp1.jpg" alt="Nike SB Dunk Low 'Jarritos' ">
-        <div class="product-name">Nike SB Dunk Low 'Jarritos'</div>
-        <div class="product-price">7.000.000 VNĐ</div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp2.jpg" alt="Adidas Campus 00s">
-        <div class="product-name">Adidas Campus 00s</div>
-        <div class="product-price">2.800.000 VNĐ</div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp3.jpg" alt="Hoka Clifton 9">
-        <div class="product-name">Hoka Clifton 9</div>
-        <div class="product-price">3.500.000 VNĐ</div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp4.jpg" alt="Asics GEL-NYC">
-        <div class="product-name">Asics GEL-NYC</div>
-        <div class="product-price">3.500.000 VNĐ </div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-   
-</div>
-<div class="product-list">
-    <div class="product-item">
-        <img src="../../images/sp6.jpg" alt=" Converse Run Star Hike ">
-        <div class="product-name"> Converse Run Star Hike </div>
-        <div class="product-price">2.800.000 VNĐ</div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp7.jpg" alt="Reebok Club C 85">
-        <div class="product-name">Reebok Club C 85</div>
-        <div class="product-price">2.500.000 VNĐ </div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp8.jpg" alt="Puma Cali Dream Leather">
-        <div class="product-name">Puma Cali Dream Leather</div>
-        <div class="product-price">2.500.000 VNĐ</div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-    <div class="product-item">
-        <img src="../../images/sp9.jpg" alt="Mizuno Wave Rider 27">
-        <div class="product-name">Mizuno Wave Rider 27</div>
-        <div class="product-price">3.500.000 VNĐ </div>
-        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
-    </div>
-</div>
-</div>
-<!-- Footer -->
-<div class="footer">
-    <div class="footer-row">
-        <div class="footer-col">
-            <h4>Giới thiệu</h4>
-            <p>
-                SNEAKERS - Cửa hàng giày uy tín, chất lượng hàng đầu Việt Nam. Chào mừng bạn đến với ngôi nhà Sneaker. 
-                Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang dấu ấn lịch sử Sneaker 100 năm, 
-                và đang không ngừng phát triển lớn mạnh.
-            </p>
-        </div> 
-        <div class="footer-col">
-            <h4>Địa chỉ</h4>
-            <p>
-                <i class="fa-solid fa-location-dot"></i>
-                123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh
-            </p>
+
+    <!-- Body -->
+    <div class="main-content">
+        <div class="sidebar">
+            <form id="filterForm">
+                <div class="filter-group">
+                    <label>Thương hiệu</label><br>
+                    <input type="checkbox" name="brand" value="1"> Nike<br>
+                    <input type="checkbox" name="brand" value="2"> Adidas<br>
+                    <input type="checkbox" name="brand" value="3"> Puma<br>
+                    <input type="checkbox" name="brand" value="4"> Khác<br>
+                </div>
+                <div class="filter-group">
+                    <label>Giá</label><br>
+                    <input type="checkbox" name="price" value="duoi2tr"> Dưới 2 triệu<br>
+                    <input type="checkbox" name="price" value="2-5tr"> 2 - 5 triệu<br>
+                    <input type="checkbox" name="price" value="tren5tr"> Trên 5 triệu<br>
+                </div>
+                <div class="filter-group">
+                    <label>Kích cỡ</label><br>
+                    <input type="checkbox" name="size" value="38"> 38<br>
+                    <input type="checkbox" name="size" value="39"> 39<br>
+                    <input type="checkbox" name="size" value="40"> 40<br>
+                    <input type="checkbox" name="size" value="41"> 41<br>
+                    <input type="checkbox" name="size" value="42"> 42<br>
+                </div>
+                <button type="submit" class="btn btn-primary">Lọc</button>
+            </form>
         </div>
-        <div class="footer-col">  
-            <h4>Liên hệ</h4>
-            <p>
-                <i class="fa-solid fa-phone"></i>
-                Điện thoại: 0123 456 789
-            </p>
-            <p>
-                <i class="fa-solid fa-envelope"></i>
-                Email: contact@sneakers.vn
-            </p>
+        <div class="product-list" id="productList"></div>
+    </div>
+    <?php
+header('Content-Type: application/json');
+require_once '../../backend/config.php';
+
+$response = ['success' => false, 'products' => [], 'message' => ''];
+
+try {
+    $category_id = (int)($_GET['category_id'] ?? 1);
+    $brands = isset($_GET['brands']) ? explode(',', $_GET['brands']) : [];
+    $sizes = isset($_GET['sizes']) ? explode(',', $_GET['sizes']) : [];
+
+    $query = "SELECT p.id, p.product_name, p.price, p.thumbnail_url
+              FROM Products p
+              WHERE p.category_id = ? AND p.deleted = 0";
+    $params = [$category_id];
+    $types = 'i';
+
+    if ($brands) {
+        $placeholders = implode(',', array_fill(0, count($brands), '?'));
+        $query .= " AND p.brand_id IN ($placeholders)";
+        $params = array_merge($params, $brands);
+        $types .= str_repeat('i', count($brands));
+    }
+
+    if ($sizes) {
+        $placeholders = implode(',', array_fill(0, count($sizes), '?'));
+        $query .= " AND p.size IN ($placeholders)";
+        $params = array_merge($params, $sizes);
+        $types .= str_repeat('s', count($sizes));
+    }
+
+    // Handle price ranges (simplified)
+    if (isset($_GET['prices'])) {
+        $prices = explode(',', $_GET['prices']);
+        $price_conditions = [];
+        foreach ($prices as $range) {
+            if ($range == 'duoi2tr') {
+                $price_conditions[] = "p.price < 2000000";
+            } elseif ($range == '2-5tr') {
+                $price_conditions[] = "p.price BETWEEN 2000000 AND 5000000";
+            } elseif ($range == 'tren5tr') {
+                $price_conditions[] = "p.price > 5000000";
+            }
+        }
+        if ($price_conditions) {
+            $query .= " AND (" . implode(' OR ', $price_conditions) . ")";
+        }
+    }
+
+    $stmt = mysqli_prepare($conn, $query);
+    if ($params) {
+        mysqli_stmt_bind_param($stmt, $types, ...$params);
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    $response['success'] = true;
+    $response['products'] = $products;
+} catch (Exception $e) {
+    $response['message'] = $e->getMessage();
+}
+
+echo json_encode($response);
+?>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-row">
+            <div class="footer-col">
+                <h4>Giới thiệu</h4>
+                <p>
+                    SNEAKERS - Cửa hàng giày uy tín, chất lượng hàng đầu Việt Nam. Chào mừng bạn đến với ngôi nhà Sneaker. 
+                    Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang dấu ấn lịch sử Sneaker 100 năm, 
+                    và đang không ngừng phát triển lớn mạnh.
+                </p>
+            </div> 
+            <div class="footer-col">
+                <h4>Địa chỉ</h4>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh
+                </p>
+            </div>
+            <div class="footer-col">  
+                <h4>Liên hệ</h4>
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    Điện thoại: 0123 456 789
+                </p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Email: contact@sneakers.vn
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<script src="../../js/auth.js"></script>
+
+    <script src="../../js/add_product.js"></script>
+    <script src="../../js/auth.js"></script>
 </body>
 </html>
