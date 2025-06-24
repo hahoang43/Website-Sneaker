@@ -1,8 +1,7 @@
 <?php
-/**
- * Session Class
- */
+// Session Class
 class Session {
+
     public static function init() {
         if (version_compare(phpversion(), '5.4.0', '<')) {
             if (session_id() == '') {
@@ -31,7 +30,7 @@ class Session {
         self::init();
         if (self::get("login") == false) {
             self::destroy();
-            header("Location:login.php");
+            header("Location: login.php");
             exit();
         }
     }
@@ -39,7 +38,7 @@ class Session {
     public static function checkLogin() {
         self::init();
         if (self::get("login") == true) {
-            header("Location:index.php");
+            header("Location: index.php");
             exit();
         }
     }
