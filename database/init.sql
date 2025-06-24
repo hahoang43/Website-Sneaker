@@ -52,7 +52,6 @@ CREATE TABLE Product (
     category_id INT,
     title VARCHAR(250) NOT NULL,
     price INT NOT NULL,
-    discount INT DEFAULT 0,
     thumbnail VARCHAR(500),
     description LONGTEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

@@ -18,4 +18,16 @@ class Category {
         $query = "SELECT * FROM category ORDER BY id DESC";
         return $this->db->select($query);
     }
+    public function update_category($id, $name) {
+    $id = intval($id);
+    $name = $this->db->link->real_escape_string($name);
+    $query = "UPDATE category SET name = '$name' WHERE id = $id";
+    return $this->db->update($query);
+}
+    public function get_category($id) {
+    $id = intval($id);
+    $query = "SELECT * FROM category WHERE id = $id";
+    return $this->db->select($query);
+}
+
 }

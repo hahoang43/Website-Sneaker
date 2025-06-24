@@ -15,7 +15,7 @@ body, html {
   margin-bottom: 5px;
 }
 
-/* Sidebar bên trái */
+
 .admin-left-container {
   float: left;
   width: 22%;
@@ -40,6 +40,7 @@ body, html {
   margin: 0;
 }
 
+
 .admin-left a {
   display: block;
   margin: 30px 0;
@@ -61,148 +62,192 @@ body, html {
 }
 .admin-right-container {
   float: left;
-  width: 74.5%;
+  width: 74.3%;
   height: 100vh;
-  background-color: #f5d4e2;
   margin-left: 0.5%;
 }
+.admin-right-add {
+  margin-top:20px;
+  margin-bottom: 32px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.admin-content-right-product_list {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px 24px;
+.admin-right-add h2 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 22px;
+  color: #222;
+}
+
+.admin-right-add form {
+  justify-content: center;
+  gap: 12px;
+}
+
+.admin-right-add input[type="text"] {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.btn-green {
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-green:hover {
+  background: #27ae60;
+}
+
+.admin-left-delete {
+margin-right:2px;
+  width: 100%;
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.admin-left-delete table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-left-delete th,
+.admin-left-delete td {
+  padding: 12px 10px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.admin-left-delete th {
+  background: #f2dada;
+  font-weight: 600;
+  color: #000000;
+}
+
+.admin-left-delete th:first-child,
+.admin-left-delete td:first-child {
+  width: 50px;
+  min-width: 40px;
+  max-width: 60px;
+  white-space: nowrap;
+}
+.admin-left-delete th:nth-child(2),
+.admin-left-delete td:nth-child(2) {
+  width: 350px;   
+  min-width: 180px;
+  max-width: 500px;
+}
+.admin-left-delete th:last-child,
+.admin-left-delete td:last-child {
+  width: 150px;   
+
+  white-space: nowrap;
+}
+
+.btn-edit {
+  background: #ffc107;
+  color: #222;
+  border: 1px solid #e0a800;
+  border-radius: 4px;      
+  padding: 7px 18px;
+  font-weight: bold;
+  margin-right: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.btn-edit:hover {
+  background: #e0a800;
+  color: #fff;
+  border-color: #b38600;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: #fff;
+  border: 1px;
+  border-radius: 4px;
+  padding: 7px 18px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, border 0.2s;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+  border-color: #922b1b;
+}
+
+
+/* css prodcut */
+
+.admin-product-add {
     margin: 32px auto;
-    max-width: 1100px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    font-family: 'Montserrat', Arial, sans-serif;
+    max-width: 600px;
+    padding: 28px 22px 18px 22px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
 }
 
-.admin-content-right-product_list h2 {
-    margin-bottom: 24px;
-    font-size: 2rem;
-    font-weight: 700;
+.admin-product-add h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 22px;
     color: #222;
-    letter-spacing: 1px;
+    text-align: center;
 }
 
-.admin-content-right-product_add {
-    margin-bottom: 32px;
-    background: #f7f7f7;
-    padding: 24px;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-
-.admin-content-right-product_add h1 {
-    font-size: 1.3rem;
-    margin-bottom: 16px;
-    color: #333;
-}
-
-.admin-content-right-product_add form {
+.admin-product-add form {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px 24px;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.admin-content-right-product_add input,
-.admin-content-right-product_add select,
-.admin-content-right-product_add textarea {
-    padding: 8px 12px;
+.admin-product-add input,
+ select,textarea {
+ width: 100%;
+padding: 9px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1rem;
-    min-width: 220px;
-    margin-bottom: 8px;
+    font-size: 15px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    background: #fafbfc;
+    transition: border 0.2s;
 }
 
-.admin-content-right-product_add textarea {
-    min-width: 400px;
-    min-height: 60px;
+.admin-product-add textarea {
+    height: 200px;
     resize: vertical;
 }
 
-.admin-content-right-product_add button[type="submit"] {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 28px;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s;
-}
 
-.admin-content-right-product_add button[type="submit"]:hover {
-    background: #0056b3;
-}
-
-.admin-content-right-product_add .error {
-    color: #e74c3c;
-    font-size: 0.95rem;
-    display: none;
+.admin-product-add label {
+    font-size: 20px;
+    font-weight: 500;
+    color: #444;
     margin-bottom: 4px;
+    margin-top: 8px;
 }
 
-.admin-content-right-product_list table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fafafa;
-    margin-top: 16px;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.admin-content-right-product_list th,
-.admin-content-right-product_list td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
-}
-
-.admin-content-right-product_list th {
-    background: #f0f0f0;
-    font-weight: 600;
-    color: #333;
-}
-
-.admin-content-right-product_list tr:last-child td {
-    border-bottom: none;
-}
-
-.admin-content-right-product_list img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #eee;
-}
-
-.action-btn {
-    padding: 6px 14px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 4px;
-    font-size: 0.98rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.edit-btn {
-    background: #ffc107;
-    color: #222;
-}
-
-.edit-btn:hover {
-    background: #e0a800;
-}
-
-.delete-btn {
-    background: #e74c3c;
-    color: #fff;
-}
-
-.delete-btn:hover {
-    background: #c0392b;
+.admin-product-add .btn-green {
+    width: 160px;
+    align-self: center;
+    margin-top: 10px;
 }

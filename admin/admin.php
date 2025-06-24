@@ -14,20 +14,25 @@
     </div>
 
     <!-- SIDEBAR (LEFT) -->
-    <div class="admin-left-container" id="left">
-        <div class="admin-left">
-            <ul>
+    <div class="admin-layout">
+        <div class="admin-left-container" id="left">
+            <div class="admin-left">
                 <p>Menu</p>
-                <li><a href="category.php">Danh Mục Sản Phẩm</a></li>
-                <li><a href="product.php">Quản Lí Sản Phẩm</a></li>
-                <li><a href="order.php">Quản Lí Đơn Hàng</a></li>
-                <li><a href="customer.php">Quản Lí Khách Hàng</a></li>
-                <li><a href="logout.php">Đăng Xuất</a></li>
-            </ul>
+                <ul>
+                    <li>
+                        <a href="category.php">Danh Mục Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="product.php">Quản Lí Sản Phẩm</a>
+                    </li>
+                    <li><a href="order.php">Quản Lí Đơn Hàng</a></li>
+                    <li><a href="customer.php">Quản Lí Khách Hàng</a></li>
+                    <li><a href="logout.php">Đăng Xuất</a></li>
+                </ul>
+            </div>
         </div>
+        <!-- Right -->
+        <div class="admin-category-right"></div>
     </div>
-
-
-   
 </body>
 </html>
