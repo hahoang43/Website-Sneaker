@@ -9,7 +9,10 @@ if (window.location.pathname.includes('/page/')) {
 window.addEventListener('DOMContentLoaded', () => {
   (async () => {
     try {
-      const res = await fetch('/PRJ/Website-Sneaker/backend/auth/check_login.php');
+      const res = await fetch('/PRJ/Website-Sneaker/backend/auth/check_login.php', {
+  credentials: 'include'
+});
+
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const result = await res.json();
 
