@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Quản lý Admin</title>
     <link rel="stylesheet" href="../css/style_admin.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../jquery-3.7.1.js"></script>
 </head>
 
 <body>

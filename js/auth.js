@@ -1,15 +1,15 @@
 // Tự động xác định đường dẫn tới giỏ hàng
 let gioHangLink = '';
 if (window.location.pathname.includes('/page/')) {
-  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.html';
 } else {
-  gioHangLink = '/PRJ/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.html';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   (async () => {
     try {
-      const res = await fetch('/PRJ/Website-Sneaker/backend/auth/check_login.php', {
+      const res = await fetch('/Website-Sneaker/backend/auth/check_login.php', {
   credentials: 'include'
 });
 
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Đăng xuất
         document.getElementById('logout-btn').addEventListener('click', async (e) => {
           e.preventDefault();
-          await fetch('/PRJ/Website-Sneaker/backend/auth/logout.php');
+          await fetch('/Website-Sneaker/backend/auth/logout.php');
           window.location.href = 'dangnhap.html';
         });
 
