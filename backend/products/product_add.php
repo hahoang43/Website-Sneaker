@@ -18,15 +18,30 @@ public function get_all_products() {
     return $this->db->select($query);
 }
 
-    public function insert_product($title, $category_id, $price, $description, $thumbnail) {
-        $title = $this->db->link->real_escape_string($title);
-        $description = $this->db->link->real_escape_string($description);
-        $thumbnail = $this->db->link->real_escape_string($thumbnail);
-        $category_id = intval($category_id);
-        $price = floatval($price);
-
-        $query = "INSERT INTO product (title, category_id, price, description, thumbnail) 
-                  VALUES ('$title', $category_id, $price, '$description', '$thumbnail')";
-        return $this->db->insert($query);
-    }
+public function get_all_sizes() {
+    $query = "SELECT * FROM Size";
+    return $this->db->select($query);
 }
+public function query($sql) {
+    return $this->db->select($sql);
+}
+
+
+public function insert_product($title, $category_id, $price, $color, $description, $thumbnail) {
+    $title = $this->db->link->real_escape_string($title);
+    $color = $this->db->link->real_escape_string($color);
+    $description = $this->db->link->real_escape_string($description);
+    $thumbnail = $this->db->link->real_escape_string($thumbnail);
+    $category_id = intval($category_id);
+    $price = floatval($price);
+
+    $query = "INSERT INTO product (title, category_id, price, color, description, thumbnail) 
+              VALUES ('$title', $category_id, $price, '$color', '$description', '$thumbnail')";
+    $result = $this->db->insert($query);
+    if ($result) {
+        return $this->db->link->insert_id; 
+    }
+    return false;
+}
+}
+?>

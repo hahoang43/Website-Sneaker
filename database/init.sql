@@ -52,6 +52,7 @@ CREATE TABLE Product (
     category_id INT,
     title VARCHAR(250) NOT NULL,
     price INT NOT NULL,
+    color VARCHAR(50) NOT NULL,
     thumbnail VARCHAR(500),
     description LONGTEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -59,6 +60,22 @@ CREATE TABLE Product (
     deleted TINYINT DEFAULT 0,
     FOREIGN KEY (category_id) REFERENCES Category(id)
 );
+-- 11. Bảng Size (danh sách các size giày)
+CREATE TABLE Size (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    size_value VARCHAR(10) NOT NULL
+);
+
+-- 12. Bảng Product_Size (liên kết sản phẩm và size, mỗi sản phẩm có thể có nhiều size)
+CREATE TABLE Product_Size (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    size_id INT,
+    quantity INT DEFAULT 0,
+    FOREIGN KEY (product_id) REFERENCES Product(id),
+    FOREIGN KEY (size_id) REFERENCES Size(id)
+);
+
 
 -- 7. Bảng Galery
 CREATE TABLE Galery (
