@@ -48,7 +48,11 @@ document.getElementById('login-form').addEventListener('submit', async function(
 
   if (result.status === 'success') {
     alert('Đăng nhập thành công!');
+  if (result.role === 'admin') {
+    window.location.href = '../admin/admin.php';
+  } else {
     window.location.href = 'index.html';
+  }
   } else {
     alert(result.message || 'Đăng nhập thất bại!');
   }

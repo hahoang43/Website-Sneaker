@@ -20,19 +20,15 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!signDiv) return;
 
       if (result.loggedIn) {
-        // Render giao diện sau khi đăng nhập
-        let dropdownItems = `
-          <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
-          <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
-        `;
+      if (result.role === 'admin') {
+      return;
+}
+// giao diện user khi đăng nhập 
+let dropdownItems = `
+    <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user"></i> Trang tài khoản</a></li>
+    <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a></li>
+  `;
 
-        // Nếu là admin, thêm link quản trị
-        if (result.role === 'admin') {
-          dropdownItems = `
-            <li><a class="dropdown-item" href="admin.html"><i class="fa-solid fa-screwdriver-wrench"></i> Quản trị</a></li>
-            ${dropdownItems}
-          `;
-        }
 
         signDiv.innerHTML = `
           <div class="user-dropdown-wrapper">
@@ -52,7 +48,11 @@ window.addEventListener('DOMContentLoaded', () => {
         // Đăng xuất
         document.getElementById('logout-btn').addEventListener('click', async (e) => {
           e.preventDefault();
-          await fetch('/Website-Sneaker/backend/auth/logout.php');
+          await fetch('/Website-Sneaker/backend/auth/logout.php',{ 
+           method: 'GET',
+    credentials: 'include', 
+          });
+          alert('Đăng xuất thành công!');
           window.location.href = 'dangnhap.html';
         });
 

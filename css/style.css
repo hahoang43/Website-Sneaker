@@ -499,3 +499,38 @@ hr {
     .auth-left { margin-right: 0; margin-bottom: 32px; }
     .auth-right { width: 100%; }
 }  
+/* Responsive danh sách sản phẩm */
+.product-grid {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* 4 sản phẩm / hàng - màn hình lớn */
+@media (min-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 3 sản phẩm / hàng - laptop thường */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 2 sản phẩm / hàng - tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 sản phẩm / hàng - điện thoại */
+@media (max-width: 767px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
