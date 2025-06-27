@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đơn hàng của tôi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .order-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff5f5;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 12px #eee;
+        }
+
+        .order-container h2 {
+            text-align: center;
+            color: #a94442;
+            margin-bottom: 24px;
+        }
+
+        .order {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            background: #fff;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #a94442;
+        }
+
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .order-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .status {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .reorder-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #a94442;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        .reorder-btn:hover {
+            background: #922b2b;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 24px;
+            background: #a94442;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            background: #922b2b;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        .loading {
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h2>Đơn hàng của tôi</h2>
+        <div id="orders-list">
+            <div class="loading">Đang tải đơn hàng...</div>
+        </div>
+        <a href="profile.html" class="back-btn"><i class="fas fa-arrow-left"></i> Trang cá nhân</a>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '../backend/user/get_user_orders.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(res) {
+                    if (res.status === 'success') {
+                        const orders = res.orders;
+                        if (orders.length === 0) {
+                            $('#orders-list').html('<div>Chưa có đơn hàng nào.</div>');
+                            return;
+                        }
+
+                        let html = '';
+                        orders.forEach(o => {
+                            html += `
+                                <div class="order">
+                                    <div class="order-header">
+                                        <div>Mã đơn: #${o.id}</div>
+                                        <div>Ngày: ${o.order_date}</div>
+                                    </div>
+                                    <div class="order-items">
+                                        ${o.items.map(item => `
+                                            <div class="order-item">
+                                                <img src="/images/${item.thumbnail}" alt="${item.product_title}">
+                                                <div>
+                                                    <strong>${item.product_title}</strong><br>
+                                                    Số lượng: ${item.num}<br>
+                                                    Đơn giá: ${item.price.toLocaleString()}đ
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <div class="status">Trạng thái: ${getStatusText(o.status)}</div>
+                                    <div>Tổng tiền: <strong>${o.total_money.toLocaleString()}đ</strong></div>
+                                    <a href="giohang.html?order_id=${o.id}" class="reorder-btn">
+                                        <i class="fa fa-shopping-cart"></i> Mua lại
+                                    </a>
+                                </div>
+                            `;
+                        });
+
+                        $('#orders-list').html(html);
+                    } else {
+                        $('#orders-list').html('<div class="error">' + res.message + '</div>');
+                    }
+                },
+                error: function() {
+                    $('#orders-list').html('<div class="error">Không thể tải đơn hàng.</div>');
+                }
+            });
+
+            function getStatusText(status) {
+                switch (parseInt(status)) {
+                    case 0: return 'Chờ xử lý';
+                    case 1: return 'Đang giao';
+                    case 2: return 'Đã hoàn tất';
+                    case 3: return 'Đã hủy';
+                    default: return 'Không xác định';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
