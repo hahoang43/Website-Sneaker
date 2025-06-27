@@ -1,21 +1,34 @@
+<?php
+require_once '../backend/products/product_add.php';
+$product = new Product();
+
+$category_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+// Lấy tên danh mục
+$category_name = $product->get_category_name($category_id);
+
+// Lấy sản phẩm thuộc danh mục
+$sql = "SELECT * FROM Product WHERE category_id = $category_id";
+$result = $product->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SNEAKERS</title>
+    <title><?php echo htmlspecialchars($category_name); ?></title>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/auth.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
     <!-- Header -->
     <div class="header">
         <div class="logo">
             <h2>
-                <a href="../index.html"> 
-                    <img src="../../images/anh_banner/logo.jpg" alt="Logo"> 
+                <a href="index.html"> 
+                    <img src="../images/anh_banner/logo.jpg" alt="Logo"> 
                 </a>
             </h2>
         </div>
@@ -26,34 +39,29 @@
         </div>
         <!-- Sign -->
         <div class="sign">
-            <a href="../dangnhap.html" class="cart-btn">
+            <a href="dangnhap.html" class="cart-btn">
                 <i class="fa-solid fa-user"></i>
             </a>
-            <a href="../giohang.html" class="cart-btn">
+            <a href="giohang.html" class="cart-btn">
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
         </div>
     </div>
 
-    <!-- MENU -->
-    <div class="menu">
-        <a href="../index.html">Trang chủ</a>
-        <a href="giaynam.html" class="active">Giày Nam</a>
-        <a href="giaynu.html">Giày Nữ</a>
-        <a href="giaytreem.html">Giày Trẻ Em</a>
-        <a href="phukiengiay.html">Phụ Kiện Giày</a>
-    </div>
+    <!-- MENU động -->
+    <div class="menu" id="main-menu"></div>
 
     <!-- Body -->
     <div class="main-content">
         <div class="sidebar">
-            <form id="filterForm">
+            <form id="filterForm" method="get">
+                <input type="hidden" name="id" value="<?php echo $category_id; ?>">
                 <div class="filter-group">
                     <label>Thương hiệu</label><br>
-                    <input type="checkbox" name="brand" value="1"> Nike<br>
-                    <input type="checkbox" name="brand" value="2"> Adidas<br>
-                    <input type="checkbox" name="brand" value="3"> Puma<br>
-                    <input type="checkbox" name="brand" value="4"> Khác<br>
+                    <input type="checkbox" name="brand" value="Nike"> Nike<br>
+                    <input type="checkbox" name="brand" value="Adidas"> Adidas<br>
+                    <input type="checkbox" name="brand" value="Puma"> Puma<br>
+                    <input type="checkbox" name="brand" value="Khác"> Khác<br>
                 </div>
                 <div class="filter-group">
                     <label>Giá</label><br>
@@ -72,7 +80,22 @@
                 <button type="submit" class="btn btn-primary">Lọc</button>
             </form>
         </div>
-        <div class="product-list" id="productList"></div>
+        <div class="product-list" id="productList">
+            <?php
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="product">';
+                    echo '<img src="../uploads/' . $row['thumbnail'] . '" width="200"><br>';
+                    echo '<b>' . htmlspecialchars($row['title']) . '</b><br>';
+                    echo number_format($row['price'], 0, ',', '.') . ' VNĐ<br>';
+                    echo '<button>Thêm vào giỏ hàng</button>';
+                    echo '</div>';
+                }
+            } else {
+                echo "Không có sản phẩm nào!";
+            }
+            ?>
+        </div>
     </div>
     <!-- Footer -->
     <div class="footer">
@@ -106,7 +129,17 @@
         </div>
     </div>
 
-    <script src="../../js/add_product.js"></script>
-    <script src="../../js/auth.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    $(function(){
+        $.getJSON('../backend/categories/category_get.php', function(data){
+            let html = '<a href="index.html">Trang chủ</a>';
+            data.forEach(function(item){
+                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
+            });
+            $('#main-menu').html(html);
+        });
+    });
+    </script>
 </body>
 </html>

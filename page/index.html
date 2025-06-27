@@ -44,13 +44,19 @@
 </div>
 
 <!-- MENU -->
-    <div class="menu">
-        <a href="index.html">Trang chủ</a>
-        <a href="danhmuc/giaynam.html"> Giày Nam</a>
-        <a href="danhmuc/giaynu.html"> Giày Nữ</a>
-        <a href="danhmuc/giaytreem.html"> Giày trẻ em </a>
-        <a href="danhmuc/phukiengiay.html"> Phụ kiện giày</a>
-    </div>
+    <div class="menu" id="main-menu"> </div>
+<script>
+$(function(){
+    $.getJSON('../backend/categories/category_get.php', function(data){
+        let html = '<a href="index.html">Trang chủ</a>';
+        // Hiển thị đúng thứ tự trong database (không bị ngược)
+        data.reverse().forEach(function(item){
+    html += '<a href="danhmuc.php?id=' + item.id + '">' + item.name + '</a>';
+});
+        $('#main-menu').html(html);
+    });
+});
+</script>
 <!--banner-->
 
     <div class="banner-inner">

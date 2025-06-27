@@ -45,6 +45,12 @@ CREATE TABLE Category (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
+-- 5. Thêm dữ liệu Category mẫu
+INSERT INTO Category (id, name) VALUES
+(1, 'Giày Nam'),
+(2, 'Giày Nữ'),
+(3, 'Giày Trẻ Em'),
+(4, 'Phụ kiện giày');
 
 -- 6. Bảng Product
 CREATE TABLE Product (

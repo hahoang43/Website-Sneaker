@@ -43,5 +43,14 @@ public function insert_product($title, $category_id, $price, $color, $descriptio
     }
     return false;
 }
+
+public function get_category_name($category_id) {
+    $category_id = intval($category_id);
+    $result = $this->query("SELECT name FROM Category WHERE id = $category_id");
+    if ($result && $row = $result->fetch_assoc()) {
+        return $row['name'];
+    }
+    return "Danh mục không tồn tại";
+}
 }
 ?>
