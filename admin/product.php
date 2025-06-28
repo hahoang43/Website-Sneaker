@@ -71,8 +71,10 @@ if ($product_id && !empty($sizes)) {
 $products = $product->get_all_products();
 ?>
 <div class="admin-right-container">
-    <div class="admin-product-add">
+    <button id="show-add-form" class="btn-green" style="margin-bottom: 16px; margin-top: 20px;">Thêm sản phẩm</button>
+    <div class="admin-product-add" id="add-product-form" style="display: none;">
         <h2>Quản Lý Sản Phẩm</h2>
+        <button type="button" id="back-to-list" class="btn-green" style="margin-bottom: 16px;">Quay lại</button>
         <form action="" method="POST" enctype="multipart/form-data">
             <label for="category_id">Danh Mục Sản Phẩm</label>
             <select name="category_id" id="category_id" required>
@@ -108,7 +110,7 @@ $products = $product->get_all_products();
             <button type="submit" class="btn-green">Thêm</button>
         </form>
     </div>
-    <div class="admin-product-list">
+    <div class="admin-product-list" id="product-list">
         <h3>Danh sách sản phẩm</h3>
         <table border="1" cellpadding="8" cellspacing="0" width="100%">
             <tr>
@@ -137,6 +139,14 @@ $products = $product->get_all_products();
                     }
                     $size_str = implode(', ', $size_arr);
 
+                    // Lấy tên danh mục
+                    $category_name = '';
+                    $cat_id = $row['category_id'];
+                    $cat_result = $product->query("SELECT name FROM Category WHERE id = $cat_id");
+                    if ($cat_result && $cat_row = $cat_result->fetch_assoc()) {
+                        $category_name = $cat_row['name'];
+                    }
+
                     echo "<tr>
                         <td>{$i}</td>
                         <td>{$row['title']}</td>
@@ -144,7 +154,7 @@ $products = $product->get_all_products();
                         <td>{$row['color']}</td>
                         <td>{$size_str}</td>
                         <td><img src='../uploads/{$row['thumbnail']}' width='60'></td>
-                        <td>{$row['category_id']}</td>
+                        <td>{$category_name}</td>
                         <td>
                             <a href='../backend/products/product_edit.php?id={$row['id']}'>Sửa</a> | 
                             <a href='../backend/products/product_delete.php?id={$row['id']}' onclick=\"return confirm('Xóa sản phẩm này?')\">Xóa</a>
@@ -157,3 +167,15 @@ $products = $product->get_all_products();
         </table>
     </div>
 </div>
+<script>
+    document.getElementById('show-add-form').onclick = function() {
+        document.getElementById('add-product-form').style.display = 'block';
+        document.getElementById('product-list').style.display = 'none';
+        this.style.display = 'none';
+    };
+    document.getElementById('back-to-list').onclick = function() {
+        document.getElementById('add-product-form').style.display = 'none';
+        document.getElementById('product-list').style.display = 'block';
+        document.getElementById('show-add-form').style.display = 'inline-block';
+    };
+</script>

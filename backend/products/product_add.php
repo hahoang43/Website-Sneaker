@@ -52,5 +52,8 @@ public function get_category_name($category_id) {
     }
     return "Danh mục không tồn tại";
 }
+public function escape($str) {
+    return $this->db->link->real_escape_string($str);
+}
 }
 ?>
