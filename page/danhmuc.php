@@ -53,7 +53,7 @@ $result = $product->query($sql);
     <div class="menu" id="main-menu"></div>
 
     <!-- Body -->
-    <div class="main-content">
+   <div class="main-content">
         <div class="sidebar">
             <form id="filterForm" method="get">
                 <input type="hidden" name="id" value="<?php echo $category_id; ?>">
@@ -85,11 +85,11 @@ $result = $product->query($sql);
             <?php
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="product">';
-                    echo '<img src="../uploads/' . $row['thumbnail'] . '" width="200"><br>';
-                    echo '<b>' . htmlspecialchars($row['title']) . '</b><br>';
-                    echo number_format($row['price'], 0, ',', '.') . ' VNĐ<br>';
-                    echo '<button>Thêm vào giỏ hàng</button>';
+                    echo '<div class="product-item">';
+                    echo '<img src="../uploads/' . htmlspecialchars($row['thumbnail']) . '" alt="' . htmlspecialchars($row['title']) . '">';
+                    echo '<div class="product-name">' . htmlspecialchars($row['title']) . '</div>';
+                    echo '<div class="product-price">' . number_format($row['price'], 0, ',', '.') . ' VNĐ</div>';
+                    echo '<div class="add-to-cart-btn"> Thêm vào giỏ hàng </div>';
                     echo '</div>';
                 }
             } else {
@@ -97,7 +97,7 @@ $result = $product->query($sql);
             }
             ?>
         </div>
-    </div>
+   </div>
     <!-- Footer -->
     <div class="footer">
         <div class="footer-row">
@@ -142,5 +142,7 @@ $result = $product->query($sql);
         });
     });
     </script>
+     <script src="../js/add_product.js"></script>
+    <script src="../js/auth.js"></script>
 </body>
 </html>
