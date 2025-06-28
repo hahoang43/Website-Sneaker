@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang cá nhân</title>
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/user.css"> <!-- Thêm dòng này -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+</head>
+<body>
+     
+  <div class="profile-layout">
+
+    <!-- Sidebar bên trái -->
+    <div class="sidebar-actions">
+      <a href="../page/index.html" class="sidebar-btn">
+        <i class="fas fa-arrow-left"></i> Trang chủ
+      </a>
+      <button id="edit-profile-btn" class="sidebar-btn">
+        <i class="fas fa-pen"></i> Chỉnh sửa
+      </button>
+      <button id="change-password-btn" class="sidebar-btn">
+        <i class="fas fa-lock"></i> Đổi mật khẩu
+      </button>
+      <a href="donhangcuatoi.html" class="sidebar-btn">
+        <i class="fas fa-box"></i> Đơn hàng của tôi
+      </a>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="profile-container">
+      <h2>Thông tin cá nhân</h2>
+      <div id="profile-info">
+        <div class="loading">Đang tải thông tin...</div>
+      </div>
+
+      <!-- Form chỉnh sửa -->
+      <form id="edit-profile-form" style="display:none;">
+        <div class="form-group">
+          <label>Họ tên</label>
+          <input type="text" id="edit-fullname" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="edit-email" required>
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại</label>
+          <input type="text" id="edit-phone">
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ</label>
+          <input type="text" id="edit-address">
+        </div>
+        <button type="submit" class="submit-btn">Lưu thay đổi</button>
+        <button type="button" id="cancel-edit" class="cancel-btn">Hủy</button>
+      </form>
+    </div>
+  </div>
+  <!-- ...existing code... -->
+
+
+  <script>
+    $(document).ready(function () {
+      let userData = null;
+
+      function renderProfile(u) {
+        $('#profile-info').html(`
+          <ul class="profile-list">
+            <li><b>Họ tên:</b> ${u.fullname}</li>
+            <li><b>Email:</b> ${u.email}</li>
+            <li><b>Số điện thoại:</b> ${u.phone_number || ''}</li>
+            <li><b>Địa chỉ:</b> ${u.address || ''}</li>
+            <li><b>Ngày tạo tài khoản:</b> ${u.created_at}</li>
+          </ul>
+        `);
+      }
+
+      $.ajax({
+        url: '../backend/user/get_profile.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function (res) {
+          if (res.status === 'success') {
+            userData = res.user;
+            renderProfile(userData);
+          } else {
+            $('#profile-info').html('<div class="error">' + res.message + '</div>');
+          }
+        },
+        error: function () {
+          $('#profile-info').html('<div class="error">Không thể tải thông tin cá nhân.</div>');
+        }
+      });
+
+      $('#edit-profile-btn').on('click', function () {
+        if (!userData) return;
+        $('#edit-fullname').val(userData.fullname);
+        $('#edit-email').val(userData.email);
+        $('#edit-phone').val(userData.phone_number);
+        $('#edit-address').val(userData.address);
+        $('#edit-profile-form').show();
+        $('#profile-info').hide();
+      });
+
+      $('#cancel-edit').on('click', function () {
+        $('#edit-profile-form').hide();
+        $('#profile-info').show();
+      });
+
+      $('#edit-profile-form').on('submit', function (e) {
+        e.preventDefault();
+        const data = {
+          fullname: $('#edit-fullname').val(),
+          email: $('#edit-email').val(),
+          phone_number: $('#edit-phone').val(),
+          address: $('#edit-address').val()
+        };
+
+        $.ajax({
+          url: '../backend/user/update_profile.php',
+          method: 'POST',
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function (res) {
+            if (res.status === 'success') {
+              userData.fullname = data.fullname;
+              userData.email = data.email;
+              userData.phone_number = data.phone_number;
+              userData.address = data.address;
+              renderProfile(userData);
+              $('#edit-profile-form').hide();
+              $('#profile-info').show();
+            } else {
+              alert(res.message || 'Cập nhật thất bại!');
+            }
+          },
+          error: function () {
+            alert('Không thể cập nhật thông tin.');
+          }
+        });
+      });
+
+      $('#change-password-btn').on('click', function () {
+        window.location.href = 'doimatkhau.html';
+      });
+    });
+  </script>
+</body>
+</html>
