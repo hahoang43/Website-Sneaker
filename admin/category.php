@@ -38,7 +38,7 @@ $categories = $category->get_all_categories();
                 $i = 1;
                 while($row = $categories->fetch_assoc()) {
                     echo "<tr>
-                        <td>$i</td>
+                        <td>{$row['id']}</td>
                         <td>{$row['name']}</td>
                         <td>
                             <a href='../backend/categories/category_edit.php?id={$row['id']}' class='btn-edit'>Sửa</a>

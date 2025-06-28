@@ -15,7 +15,7 @@ class Category {
         return $result;
     }
     public function get_all_categories() {
-        $query = "SELECT * FROM category ORDER BY id DESC";
+        $query = "SELECT * FROM category ORDER BY id ";
         return $this->db->select($query);
     }
     public function update_category($id, $name) {

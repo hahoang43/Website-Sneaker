@@ -21,6 +21,7 @@ $result = $product->query($sql);
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="../jquery-3.7.1.min.js">
 </head>
 <body>
     <!-- Header -->
@@ -34,7 +35,7 @@ $result = $product->query($sql);
         </div>
         <!-- Search -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+            <input type="text" id="searchInput">
             <i class="fas fa-search search-icon"></i>
         </div>
         <!-- Sign -->
