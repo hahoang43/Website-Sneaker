@@ -21,7 +21,7 @@ $result = $product->query($sql);
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
-    <link rel="../jquery-3.7.1.min.js">
+    <link rel="../jquery-3.7.1.js">
 </head>
 <body>
     <!-- Header -->
@@ -86,8 +86,10 @@ $result = $product->query($sql);
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="product-item">';
+                    echo '<a href="chitietsanpham.php?id=' . $row['id'] . '">';
                     echo '<img src="../uploads/' . htmlspecialchars($row['thumbnail']) . '" alt="' . htmlspecialchars($row['title']) . '">';
                     echo '<div class="product-name">' . htmlspecialchars($row['title']) . '</div>';
+                    echo '</a>';
                     echo '<div class="product-price">' . number_format($row['price'], 0, ',', '.') . ' VNĐ</div>';
                     echo '<div class="add-to-cart-btn"> Thêm vào giỏ hàng </div>';
                     echo '</div>';
@@ -129,8 +131,7 @@ $result = $product->query($sql);
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="../jquery-3.7.1.js"></script>
     <script>
     $(function(){
         $.getJSON('../backend/categories/category_get.php', function(data){
