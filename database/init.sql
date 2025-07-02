@@ -60,6 +60,7 @@ CREATE TABLE Product (
     color VARCHAR(50) NOT NULL,
     thumbnail VARCHAR(500),
     description LONGTEXT,
+    brand VARCHAR(50), -- thêm dòng này
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted TINYINT DEFAULT 0,
@@ -135,28 +136,28 @@ INSERT INTO Size (size_value) VALUES
 ('36'), ('37'), ('38'), ('39'), ('40'), ('41'), ('42'), ('43');
 
 -- Thêm 20 sản phẩm giày sneaker mẫu vào bảng Product
-INSERT INTO Product (category_id, title, price, color, thumbnail, description)
+INSERT INTO Product (category_id, title, price, color, thumbnail, description, brand)
 VALUES
-(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.'),
-(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.'),
-(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.'),
-(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Vans Old Skool với sọc trắng đặc trưng.'),
-(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Puma Suede Classic mềm mại, thời trang.'),
-(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Nike Air Max 97 với đế khí êm ái.'),
-(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Adidas Stan Smith đơn giản, thanh lịch.'),
-(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'New Balance 574 êm ái, phù hợp đi bộ.'),
-(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Reebok Classic Leather bền bỉ, cá tính.'),
-(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Nike Dunk Low phối màu trẻ trung.'),
-(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Adidas NMD R1 công nghệ Boost hiện đại.'),
-(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Vans Slip-On tiện lợi, dễ mang.'),
-(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Nike Blazer Mid cổ cao, cá tính.'),
-(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Fila Disruptor II đế chunky nổi bật.'),
-(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Puma RS-X phối màu hiện đại.'),
-(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Adidas Yeezy Boost 350 thiết kế độc đáo.'),
-(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.'),
-(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.'),
-(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.'),
-(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.');
+(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.', 'Nike'),
+(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.', 'Adidas'),
+(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.', 'Converse'),
+(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Vans Old Skool với sọc trắng đặc trưng.', 'Vans'),
+(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Puma Suede Classic mềm mại, thời trang.', 'Puma'),
+(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Nike Air Max 97 với đế khí êm ái.', 'Nike'),
+(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Adidas Stan Smith đơn giản, thanh lịch.', 'Adidas'),
+(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'New Balance 574 êm ái, phù hợp đi bộ.', 'New Balance'),
+(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Reebok Classic Leather bền bỉ, cá tính.', 'Reebok'),
+(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Nike Dunk Low phối màu trẻ trung.', 'Nike'),
+(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Adidas NMD R1 công nghệ Boost hiện đại.', 'Adidas'),
+(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Vans Slip-On tiện lợi, dễ mang.', 'Vans'),
+(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Nike Blazer Mid cổ cao, cá tính.', 'Nike'),
+(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Fila Disruptor II đế chunky nổi bật.', 'Fila'),
+(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Puma RS-X phối màu hiện đại.', 'Puma'),
+(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Adidas Yeezy Boost 350 thiết kế độc đáo.', 'Adidas'),
+(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.', 'Nike'),
+(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.', 'Converse'),
+(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
+(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok');
 
 -- Thêm size cho từng sản phẩm (giả sử mỗi sản phẩm có đủ size 38, 39, 40, 41, 42, 43)
 INSERT INTO Product_Size (product_id, size_id, quantity) VALUES
