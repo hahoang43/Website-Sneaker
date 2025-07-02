@@ -138,6 +138,7 @@ INSERT INTO Size (size_value) VALUES
 -- Thêm 20 sản phẩm giày sneaker mẫu vào bảng Product
 INSERT INTO Product (category_id, title, price, color, thumbnail, description, brand)
 VALUES
+<<<<<<< HEAD
 (1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.', 'Nike'),
 (1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.', 'Adidas'),
 (1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.', 'Converse'),
@@ -158,6 +159,49 @@ VALUES
 (1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.', 'Converse'),
 (1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
 (1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok');
+=======
+(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.'),
+(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.'),
+(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.'),
+(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Vans Old Skool với sọc trắng đặc trưng.'),
+(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Puma Suede Classic mềm mại, thời trang.'),
+(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Nike Air Max 97 với đế khí êm ái.'),
+(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Adidas Stan Smith đơn giản, thanh lịch.'),
+(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'New Balance 574 êm ái, phù hợp đi bộ.'),
+(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Reebok Classic Leather bền bỉ, cá tính.'),
+(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Nike Dunk Low phối màu trẻ trung.'),
+(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Adidas NMD R1 công nghệ Boost hiện đại.'),
+(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Vans Slip-On tiện lợi, dễ mang.'),
+(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Nike Blazer Mid cổ cao, cá tính.'),
+(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Fila Disruptor II đế chunky nổi bật.'),
+(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Puma RS-X phối màu hiện đại.'),
+(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Adidas Yeezy Boost 350 thiết kế độc đáo.'),
+(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.'),
+(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.'),
+(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.'),
+(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.');
+(2, 'Nike Air Max 270 React', 2700000, 'Trắng/Hồng', 'airmax270react.jpg', 'Nike Air Max 270 React là sự kết hợp giữa công nghệ đệm Air Max nổi tiếng và lớp đệm React siêu êm ái, mang lại cảm giác thoải mái tối đa cho mỗi bước chân. Với phối màu trắng/hồng nữ tính, đôi giày này không chỉ phù hợp với những cô nàng yêu thích phong cách thể thao năng động mà còn rất dễ phối với các outfit thường ngày như quần jogger, jeans, hoặc đầm casual. Thiết kế hiện đại, trẻ trung cùng hiệu năng tuyệt vời khiến Air Max 270 React trở thành lựa chọn hoàn hảo cho việc đi chơi, đi học hoặc vận động nhẹ nhàng.'),
+(2, 'Adidas Forum Low White', 2300000, 'Trắng/Kem', 'forumlowwhite.jpg', 'Adidas Forum Low ''White'' mang phong cách bóng rổ cổ điển, nhưng lại trở thành một xu hướng thời trang được yêu thích. Với thiết kế chunky vừa phải, đôi giày này mang lại vẻ ngoài năng động, retro và dễ dàng kết hợp với nhiều loại trang phục, từ váy đầm nhẹ nhàng đến quần jeans ống rộng.'),
+(2, 'Converse Chuck 70 Low Parchment', 1700000, 'Trắng ngà', 'chuck70lowparchment.jpg', 'Converse Chuck 70 Low ''Parchment'' là phiên bản nâng cấp của Chuck Taylor cổ điển, với màu sắc trung tính dễ phối đồ và chất lượng vật liệu vượt trội. Đôi giày này mang đến vẻ ngoài vintage, thanh lịch nhưng vẫn rất năng động, phù hợp cho mọi hoạt động hàng ngày.'),
+(2, 'New Balance 530', 2500000, 'Xám', 'nb530.jpg', 'New Balance 530 là đôi giày ''dad shoe'' đang rất thịnh hành, nổi bật với vẻ ngoài chunky và retro. Không chỉ mang lại phong cách ấn tượng, 530 còn cực kỳ thoải mái và êm ái nhờ công nghệ đệm ABZORB, phù hợp cho cả việc đi bộ hàng ngày và tạo điểm nhấn cho outfit.'),
+(2, 'Nike Dunk Low Light Bone', 2800000, 'Trắng ngà/Nâu nhạt', 'dunklowlb.jpg', 'Nike Dunk Low ''Light Bone'' mang đến một phối màu trung tính, nhẹ nhàng và thanh lịch, dễ dàng phối hợp với nhiều trang phục khác nhau. Vẫn giữ nguyên form dáng cổ điển của Dunk Low, phiên bản này là lựa chọn tuyệt vời cho những cô gái yêu thích sự đơn giản nhưng vẫn muốn tạo điểm nhấn tinh tế.'),
+(2, 'PUMA Mayze Lth White', 2000000, 'Trắng', 'mayzelthwhite.jpg', 'PUMA Mayze Lth ''White'' là một đôi sneaker có đế platform cao, giúp ''ăn gian'' chiều cao hiệu quả và mang lại vẻ ngoài cá tính, hiện đại. Chất liệu da cao cấp và thiết kế đơn giản nhưng độc đáo làm cho Mayze trở thành lựa chọn yêu thích của các cô gái năng động.'),
+(2, 'Adidas Gazelle Bold Pink Glow', 2600000, 'Hồng phấn/Trắng', 'gazelleboldpinkglow.jpg', 'Adidas Gazelle Bold ''Pink Glow'' là sự kết hợp hoàn hảo giữa phong cách retro và xu hướng hiện đại. Với màu hồng phấn ngọt ngào và đế platform ấn tượng, đôi giày này sẽ là điểm nhấn nổi bật cho mọi set đồ, thể hiện sự nữ tính và cá tính.'),
+(2, 'Nike Blazer Mid 77 Vintage White/Black', 2400000, 'Trắng/Đen', 'blazermid77wb.jpg', 'Nike Blazer Mid ''77 Vintage ''White/Black'' mang đến vẻ ngoài retro cổ điển của những năm 70. Thiết kế đơn giản, vượt thời gian cùng phối màu trắng đen kinh điển giúp đôi giày này dễ dàng phù hợp với nhiều phong cách, từ sporty đến casual chic.'),
+(2, 'ASICS Gel-Kayano 14', 3500000, 'Bạc/Trắng', 'gelkayano14.jpg', 'ASICS Gel-Kayano 14 là một đôi giày chạy bộ hiệu năng cao nhưng lại rất được ưa chuộng trong giới thời trang. Với công nghệ GEL mang lại sự êm ái vượt trội và thiết kế ''chunky'' độc đáo, Gel-Kayano 14 là lựa chọn hoàn hảo cho những cô gái yêu thích phong cách techwear hoặc muốn một đôi giày vừa thoải mái vừa trendy.'),
+(2, 'Veja V-10 White/Black', 3200000, 'Trắng/Đen', 'vejav10wb.jpg', 'Veja V-10 ''White/Black'' là lựa chọn lý tưởng cho những ai quan tâm đến thời trang bền vững và phong cách tối giản. Đôi giày này không chỉ được làm từ vật liệu thân thiện với môi trường mà còn mang thiết kế sạch sẽ, tinh tế, dễ dàng phối hợp với mọi trang phục, từ công sở đến đi chơi.'),
+(2, 'Adidas Falcon', 2400000, 'Hồng/Xám', 'falcon.jpg', 'Adidas Falcon nổi bật với form chunky đậm chất thập niên 90, phối màu hồng và xám thời thượng. Đây là mẫu giày mang phong cách street style rõ nét, thích hợp để phối với quần jean, crop top hoặc các outfit phá cách.'),
+(2, 'Puma Cali Dream', 2100000, 'Trắng/Xanh', 'calidream.jpg', 'Puma Cali Dream là lựa chọn lý tưởng cho những cô nàng hiện đại. Với thiết kế đế cao nhẹ, kiểu dáng đơn giản nhưng thời trang, đôi giày này mang lại sự thoải mái và tự tin khi đi học, đi chơi hoặc dạo phố.'),
+(2, 'New Balance 237', 2000000, 'Be/Hồng', 'nb237.jpg', 'New Balance 237 mang phong cách retro hiện đại với chất liệu vải thoáng khí, màu sắc nhẹ nhàng. Thiết kế đơn giản, nhẹ và êm chân giúp bạn di chuyển linh hoạt suốt ngày dài, phù hợp cho sinh viên hoặc người làm việc văn phòng.'),
+(2, 'Converse Chuck Taylor Lift', 1900000, 'Trắng', 'ctaylorlift.jpg', 'Converse Chuck Taylor Lift là phiên bản platform nâng cấp từ mẫu cổ điển. Đế cao giúp tăng chiều cao một cách tinh tế, vẫn giữ lại nét đặc trưng của Converse, phù hợp với nhiều phong cách khác nhau từ vintage đến casual.'),
+(2, 'Vans Old Skool Pastel', 1700000, 'Xanh pastel', 'oldskoolpastel.jpg', 'Vans Old Skool Pastel giữ nguyên thiết kế cổ điển với đường sọc trắng đặc trưng, kết hợp phối màu pastel xanh dịu nhẹ. Mẫu giày này mang lại cảm giác trẻ trung, nữ tính và dễ phối với mọi kiểu trang phục hàng ngày.'),
+(2, 'Reebok Club C Double', 1800000, 'Trắng/Xanh lá', 'clubcdouble.jpg', 'Reebok Club C Double là mẫu sneaker có đế dày với thiết kế thể thao tối giản. Với phối màu trắng/xanh lá hài hòa, đây là lựa chọn linh hoạt cho cả phong cách thể thao, năng động lẫn thời trang thường ngày.'),
+(2, 'Fila Electrove 2', 2200000, 'Trắng/Hồng', 'electrove2.jpg', 'Fila Electrove 2 gây ấn tượng với thiết kế chunky đặc trưng, màu trắng phối hồng nổi bật, giúp tạo điểm nhấn cá tính cho outfit. Đây là mẫu giày cực kỳ phù hợp để xuống phố, chụp ảnh hoặc đi dạo cuối tuần.'),
+(2, 'Nike Waffle One', 2300000, 'Xám/Hồng', 'waffleone.jpg', 'Nike Waffle One kết hợp vẻ ngoài hiện đại với lưới thoáng khí và phần đế waffle bám tốt. Thiết kế nhẹ, êm và linh hoạt giúp bạn thoải mái vận động nhẹ nhàng như đi bộ, tập gym hoặc đi chơi thường ngày.'),
+(2, 'Adidas Stan Smith Bold', 2500000, 'Trắng/Vàng', 'stansmithbold.jpg', 'Adidas Stan Smith Bold là phiên bản nâng đế của dòng giày huyền thoại Stan Smith. Với thiết kế tối giản, phối màu trắng/vàng sang trọng, đôi giày phù hợp để diện đi học, đi làm hoặc phối với trang phục công sở thanh lịch.');
+
+
+>>>>>>> f7124499cc908d32785be708aa0f2260b3cd2952
 
 -- Thêm size cho từng sản phẩm (giả sử mỗi sản phẩm có đủ size 38, 39, 40, 41, 42, 43)
 INSERT INTO Product_Size (product_id, size_id, quantity) VALUES
