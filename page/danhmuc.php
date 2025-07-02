@@ -80,10 +80,13 @@ $result = $product->query($sql);
             </h2>
         </div>
         <!-- Search -->
-        <div class="search-container">
-            <input type="text" id="searchInput">
-            <i class="fas fa-search search-icon"></i>
-        </div>
+       <!-- search- -->
+    <div class="search-container">
+    <input type="text" id="search-input">
+    <i class="fas fa-search search-icon" id="search-button" ></i>
+    </div>
+
+    <script src="../js/search.js" > </script>
         <!-- Sign -->
         <div class="sign">
             <a href="dangnhap.html" class="cart-btn">

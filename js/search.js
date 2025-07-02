@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('search-button').addEventListener('click', function () {
-        const keyword = document.getElementById('search-input').value.trim();
-        if (keyword !== '') {
-            window.location.href = `/page/timkiem.html?keyword=${encodeURIComponent(keyword)}`;
-        }
-    });
+    const searchBtn = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+    if (!searchBtn || !searchInput) return;
 
-    document.getElementById('search-input').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            document.getElementById('search-button').click();
+    searchBtn.onclick = function () {
+        const keyword = searchInput.value.trim();
+        if (keyword) {
+            window.location.href = '/Website-Sneaker/page/timkiem.php?q=' + encodeURIComponent(keyword);
         }
-    });
-});
+    };
+
+    searchInput.onkeypress = function (e) {
+        if (e.key === 'Enter') {
+            searchBtn.click();
+        }
+    };
+})
