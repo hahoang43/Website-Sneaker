@@ -1,0 +1,217 @@
+/* Product Detail Container */
+.product-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Product Detail Flex */
+.product-detail-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Product Image */
+.product-detail-image {
+    flex: 1;
+    min-width: 320px; /* Increased min-width for larger image */
+    max-width: 500px; /* Added max-width to prevent overly large images */
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-detail-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Info */
+.product-detail-info {
+    flex: 1;
+    min-width: 280px;
+    padding: 1rem;
+}
+
+.product-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #e53e3e;
+    margin-bottom: 1rem;
+}
+
+/* Product Size and Quantity */
+.product-size, .product-quantity {
+    margin-bottom: 1rem;
+}
+
+.product-size label, .product-quantity label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+.product-size select, .product-quantity input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease;
+}
+
+.product-size select:focus, .product-quantity input:focus {
+    border-color: #3182ce;
+    outline: none;
+}
+
+/* Product Buttons */
+.product-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-add-cart, .btn-buy-now {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-add-cart {
+    background-color: #3182ce;
+    color: white;
+}
+
+.btn-buy-now {
+    background-color: #38a169;
+    color: white;
+}
+
+.btn-add-cart:hover, .btn-buy-now:hover {
+    background-color: #2b6cb0; /* Darker blue for add to cart */
+}
+
+.btn-buy-now:hover {
+    background-color: #2f855a; /* Darker green for buy now */
+}
+
+.btn-add-cart:active, .btn-buy-now:active {
+    transform: scale(0.98);
+}
+
+/* Product Description */
+.product-description {
+    margin-top: 1.5rem;
+}
+
+.product-description h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+}
+
+.product-desc {
+    font-size: 0.875rem;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* Review Form */
+.review-form {
+    margin-top: 1.5rem;
+    padding: 1rem; /* Reduced padding for smaller form */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+    max-width: 600px; /* Constrain width to make form smaller */
+}
+
+.review-title {
+    font-size: 1.125rem; /* Slightly smaller title */
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+}
+
+.review-label {
+    display: block;
+    font-size: 0.75rem; /* Smaller font for labels */
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+}
+
+.review-input, .review-textarea {
+    width: 100%;
+    padding: 0.375rem; /* Reduced padding for inputs */
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.75rem; /* Smaller font for inputs */
+    transition: border-color 0.2s ease;
+}
+
+.review-input:focus, .review-textarea:focus {
+    border-color: #3182ce;
+    outline: none;
+}
+
+.review-button {
+    width: 100%;
+    padding: 0.5rem; /* Reduced padding for button */
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.75rem; /* Smaller font for button */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.review-button:hover {
+    background-color: #2b6cb0;
+}
+
+.review-button:active {
+    transform: scale(0.98);
+}
+
+/* Alert Message */
+.alert-message {
+    font-size: 0.75rem; /* Smaller font for alert */
+    text-align: center;
+    margin-top: 0.5rem;
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -25,6 +25,7 @@ if (!$row) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/style_chitietsp.css">
    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
@@ -76,12 +77,7 @@ if (!$row) {
             <div class="product-detail-info">
                 <h1 class="product-title"><?php echo htmlspecialchars($row['title']); ?></h1>
                 <p class="product-price">Giá: <?php echo number_format($row['price'], 0, ',', '.'); ?>₫</p>
-                <p class="product-desc"><?php echo nl2br(htmlspecialchars($row['description'] ?? '')); ?></p>
-                <div class="product-rating">
-                    <strong>4.8/5</strong>
-                    <a href="#review-section" class="star-link">★★★★★</a>
-                    <p>(<a href="#review-section" class="review-link">Dựa trên 123 đánh giá</a>)</p>
-                </div>
+        
                 <!-- Size options -->
                 <div class="product-size">
                     <label for="size">Chọn size:</label>
@@ -116,22 +112,29 @@ if (!$row) {
                 </div>
             </div>
         </div>
-
-        <!-- Chi tiết sản phẩm -->
+        
+       
+        <!-- Mô  sản phẩm -->
         <div class="product-description">
             <h2>Mô tả</h2>
             <p>
-                <?php echo nl2br(htmlspecialchars($row['content'] ?? 'Giày Nike Air Max 270 mang đến cảm giác thoải mái với đế Air lớn nhất từng có từ Nike. Thiết kế hiện đại, màu sắc trẻ trung và phong cách năng động giúp bạn nổi bật trong mọi hoàn cảnh.')); ?>
-            </p>
-            <ul>
-                <li>Chất liệu: Vải lưới thoáng khí</li>
-                <li>Đế giữa: Đệm khí Air Max đàn hồi</li>
-                <li>Phù hợp: Đi học, đi chơi, thể thao nhẹ</li>
-                <li>Thương hiệu: Nike chính hãng</li>
-            </ul>
+                 <p class="product-desc"><?php echo nl2br(htmlspecialchars($row['description'] ?? '')); ?></p>
+            
         </div>
     </div>
+        <div class="review-form">
+    <h3 class="review-title">Gửi đánh giá của bạn</h3>
+    <form>
+        <label for="reviewerName" class="review-label">Tên của bạn:</label>
+        <input type="text" id="reviewerName" name="reviewerName" class="review-input">
+        <label for="reviewContent" class="review-label">Nội dung đánh giá:</label>
+        <textarea id="reviewContent" name="reviewContent" rows="4" class="review-textarea"></textarea>
 
+        <button type="submit" class="review-button">Gửi đánh giá</button>
+    </form>
+</div>
+
+    </div>
  <!-- Footer -->
 <div class="footer">
     <div class="footer-row">
