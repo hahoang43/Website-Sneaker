@@ -135,10 +135,10 @@ CREATE TABLE Order_Details (
 INSERT INTO Size (size_value) VALUES 
 ('36'), ('37'), ('38'), ('39'), ('40'), ('41'), ('42'), ('43');
 
--- Thêm 20 sản phẩm giày sneaker mẫu vào bảng Product
+
 INSERT INTO Product (category_id, title, price, color, thumbnail, description, brand)
 VALUES
-<<<<<<< HEAD
+
 (1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.', 'Nike'),
 (1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.', 'Adidas'),
 (1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.', 'Converse'),
@@ -158,7 +158,7 @@ VALUES
 (1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.', 'Nike'),
 (1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.', 'Converse'),
 (1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
-(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok');
+(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok'),
 (2, 'Nike Air Max 270 React', 2700000, 'Trắng/Hồng', 'airmax270react.jpg', 'Nike Air Max 270 React là sự kết hợp giữa công nghệ đệm Air Max nổi tiếng và lớp đệm React siêu êm ái, mang lại cảm giác thoải mái tối đa cho mỗi bước chân.', 'Nike'),
 (2, 'Adidas Forum Low White', 2300000, 'Trắng/Kem', 'forumlowwhite.jpg', 'Adidas Forum Low White mang phong cách bóng rổ cổ điển, thiết kế chunky vừa phải, năng động.', 'Adidas'),
 (2, 'Converse Chuck 70 Low Parchment', 1700000, 'Trắng ngà', 'chuck70lowparchment.jpg', 'Converse Chuck 70 Low Parchment là phiên bản nâng cấp của Chuck Taylor cổ điển, màu sắc trung tính dễ phối đồ.', 'Converse'),
