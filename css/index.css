@@ -43,7 +43,7 @@
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; 
+  pointer-events: auto; 
   color: #680505;
   font-size: 18px;
 }

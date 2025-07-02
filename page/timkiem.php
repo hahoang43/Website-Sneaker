@@ -1,60 +1,69 @@
 <?php
 require_once '../backend/products/product_add.php';
-$product = new Product();
+$productObj = new Product();
 
-$category_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$keyword = isset($_GET['q']) ? $productObj->escape($_GET['q']) : '';
 
-// Lấy tên danh mục
-$category_name = $product->get_category_name($category_id);
-
-// Lấy sản phẩm thuộc danh mục
-$sql = "SELECT * FROM Product WHERE category_id = $category_id";
-$result = $product->query($sql);
+$sql = "SELECT * FROM Product WHERE title LIKE '%$keyword%' OR description LIKE '%$keyword%'";
+$result = $productObj->query($sql);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title><?php echo htmlspecialchars($category_name); ?></title>
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/auth.css">
-    <link rel="../jquery-3.7.1.js">
+    <script src="../jquery-3.7.1.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../js/dangnhap.js"></script>
+  
+<link rel="stylesheet" href="../css/auth.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">
-            <h2>
-                <a href="index.html"> 
-                    <img src="../images/anh_banner/logo.jpg" alt="Logo"> 
-                </a>
-            </h2>
-        </div>
-        <!-- Search -->
-       <!-- search- -->
+      <!-- Header -->
+<div class="header">
+    <div class="logo">
+        <h2>
+            <a href="index.html"> 
+            <img src="../images/anh_banner/logo.jpg" > </a> 
+        </h2>
+    </div>
+    
+     <!-- search- -->
     <div class="search-container">
     <input type="text" id="search-input">
     <i class="fas fa-search search-icon" id="search-button" ></i>
     </div>
 
     <script src="../js/search.js" > </script>
-        <!-- Sign -->
-        <div class="sign">
-            <a href="dangnhap.html" class="cart-btn">
-                <i class="fa-solid fa-user"></i>
-            </a>
-            <a href="giohang.html" class="cart-btn">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
+    <!-- sign -->
+    <div class="sign">
+   <a href="dangnhap.html" class="cart-btn">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <a href="giohang.html" class="cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </a>
     </div>
+</div>
 
-    <!-- MENU động -->
-    <div class="menu" id="main-menu"></div>
-
+<!-- MENU -->
+    <div class="menu" id="main-menu"> </div>
+<script>
+$(function(){
+    $.getJSON('../backend/categories/category_get.php', function(data){
+        let html = '<a href="index.html">Trang chủ</a>';
+       data.forEach(function(item) {
+    html += '<a href="danhmuc.php?id=' + item.id + '">' + item.name + '</a>';
+});
+        $('#main-menu').html(html);
+    });
+});
+</script>
     <!-- Body -->
    <div class="main-content">
         <div class="sidebar">
@@ -68,7 +77,7 @@ $result = $product->query($sql);
                     <input type="checkbox" name="brand" value="Khác"> Khác<br>
                 </div>
                 <div class="filter-group">
-                    <label>Giá</label><br>
+                  <label>Giá</label><br>
                     <input type="checkbox" name="price" value="duoi2tr"> Dưới 2 triệu<br>
                     <input type="checkbox" name="price" value="2-5tr"> 2 - 5 triệu<br>
                     <input type="checkbox" name="price" value="tren5tr"> Trên 5 triệu<br>
@@ -84,7 +93,7 @@ $result = $product->query($sql);
                 <button type="submit" class="btn btn-primary">Lọc</button>
             </form>
         </div>
-        <div class="product-list" id="productList">
+     <div class="product-list" id="productList">
             <?php
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -102,51 +111,5 @@ $result = $product->query($sql);
             }
             ?>
         </div>
-   </div>
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-row">
-            <div class="footer-col">
-                <h4>Giới thiệu</h4>
-                <p>
-                    SNEAKERS - Cửa hàng giày uy tín, chất lượng hàng đầu Việt Nam. Chào mừng bạn đến với ngôi nhà Sneaker. 
-                    Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang dấu ấn lịch sử Sneaker 100 năm, 
-                    và đang không ngừng phát triển lớn mạnh.
-                </p>
-            </div> 
-            <div class="footer-col">
-                <h4>Địa chỉ</h4>
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh
-                </p>
-            </div>
-            <div class="footer-col">  
-                <h4>Liên hệ</h4>
-                <p>
-                    <i class="fa-solid fa-phone"></i>
-                    Điện thoại: 0123 456 789
-                </p>
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    Email: contact@sneakers.vn
-                </p>
-            </div>
-        </div>
-    </div>
-            <script src="../jquery-3.7.1.js"></script>
-    <script>
-    $(function(){
-        $.getJSON('../backend/categories/category_get.php', function(data){
-            let html = '<a href="index.html">Trang chủ</a>';
-            data.forEach(function(item){
-                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
-            });
-            $('#main-menu').html(html);
-        });
-    });
-    </script>
-     <script src="../js/add_product.js"></script>
-    <script src="../js/auth.js"></script>
 </body>
 </html>
