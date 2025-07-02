@@ -3,25 +3,71 @@ require_once '../backend/products/product_add.php';
 $product = new Product();
 
 $category_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-
-// Lấy tên danh mục
 $category_name = $product->get_category_name($category_id);
 
-// Lấy sản phẩm thuộc danh mục
-$sql = "SELECT * FROM Product WHERE category_id = $category_id";
+// Xử lý lọc
+$where = "category_id = $category_id";
+
+// Lọc thương hiệu
+if (!empty($_GET['brand'])) {
+    $brands = is_array($_GET['brand']) ? $_GET['brand'] : [$_GET['brand']];
+    $brands = array_map('addslashes', $brands);
+    $brands_in = "'" . implode("','", $brands) . "'";
+    $where .= " AND brand IN ($brands_in)";
+}
+
+// Lọc giá
+if (!empty($_GET['price'])) {
+    $prices = is_array($_GET['price']) ? $_GET['price'] : [$_GET['price']];
+    $price_sql = [];
+    foreach ($prices as $price) {
+        if ($price == 'duoi2tr') $price_sql[] = "price < 2000000";
+        if ($price == '2-5tr') $price_sql[] = "(price >= 2000000 AND price <= 5000000)";
+        if ($price == 'tren5tr') $price_sql[] = "price > 5000000";
+    }
+    if ($price_sql) $where .= " AND (" . implode(' OR ', $price_sql) . ")";
+}
+
+// Lọc size
+if (!empty($_GET['size'])) {
+    $sizes = is_array($_GET['size']) ? $_GET['size'] : [$_GET['size']];
+    $sizes = array_map('addslashes', $sizes);
+    $sizes_in = "'" . implode("','", $sizes) . "'";
+    $where .= " AND id IN (
+        SELECT product_id FROM Product_Size 
+        JOIN Size ON Product_Size.size_id = Size.id 
+        WHERE Size.size_value IN ($sizes_in) AND Product_Size.quantity > 0
+    )";
+}
+
+// Số sản phẩm mỗi trang
+$limit = 6; // hoặc số bạn muốn
+
+// Trang hiện tại
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$offset = ($page - 1) * $limit;
+
+// Đếm tổng số sản phẩm sau khi lọc
+$sql_count = "SELECT COUNT(*) as total FROM Product WHERE $where";
+$count_result = $product->query($sql_count);
+$total = $count_result ? $count_result->fetch_assoc()['total'] : 0;
+$total_pages = ceil($total / $limit);
+
+// Lấy sản phẩm cho trang hiện tại
+$sql = "SELECT * FROM Product WHERE $where LIMIT $offset, $limit";
 $result = $product->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo htmlspecialchars($category_name); ?></title>
+
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/auth.css">
-    <link rel="../jquery-3.7.1.js">
+    <script src="../jquery-3.7.1.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -56,30 +102,30 @@ $result = $product->query($sql);
     <div class="menu" id="main-menu"></div>
 
     <!-- Body -->
-   <div class="main-content">
+    <div class="main-content">
         <div class="sidebar">
             <form id="filterForm" method="get">
                 <input type="hidden" name="id" value="<?php echo $category_id; ?>">
                 <div class="filter-group">
                     <label>Thương hiệu</label><br>
-                    <input type="checkbox" name="brand" value="Nike"> Nike<br>
-                    <input type="checkbox" name="brand" value="Adidas"> Adidas<br>
-                    <input type="checkbox" name="brand" value="Puma"> Puma<br>
-                    <input type="checkbox" name="brand" value="Khác"> Khác<br>
+                    <input type="checkbox" name="brand[]" value="Nike" <?php if(!empty($_GET['brand']) && in_array('Nike', (array)$_GET['brand'])) echo 'checked'; ?>> Nike<br>
+                    <input type="checkbox" name="brand[]" value="Adidas" <?php if(!empty($_GET['brand']) && in_array('Adidas', (array)$_GET['brand'])) echo 'checked'; ?>> Adidas<br>
+                    <input type="checkbox" name="brand[]" value="Puma" <?php if(!empty($_GET['brand']) && in_array('Puma', (array)$_GET['brand'])) echo 'checked'; ?>> Puma<br>
+                    <input type="checkbox" name="brand[]" value="Khác" <?php if(!empty($_GET['brand']) && in_array('Khác', (array)$_GET['brand'])) echo 'checked'; ?>> Khác<br>
                 </div>
                 <div class="filter-group">
                     <label>Giá</label><br>
-                    <input type="checkbox" name="price" value="duoi2tr"> Dưới 2 triệu<br>
-                    <input type="checkbox" name="price" value="2-5tr"> 2 - 5 triệu<br>
-                    <input type="checkbox" name="price" value="tren5tr"> Trên 5 triệu<br>
+                    <input type="checkbox" name="price[]" value="duoi2tr" <?php if(!empty($_GET['price']) && in_array('duoi2tr', (array)$_GET['price'])) echo 'checked'; ?>> Dưới 2 triệu<br>
+                    <input type="checkbox" name="price[]" value="2-5tr" <?php if(!empty($_GET['price']) && in_array('2-5tr', (array)$_GET['price'])) echo 'checked'; ?>> 2 - 5 triệu<br>
+                    <input type="checkbox" name="price[]" value="tren5tr" <?php if(!empty($_GET['price']) && in_array('tren5tr', (array)$_GET['price'])) echo 'checked'; ?>> Trên 5 triệu<br>
                 </div>
                 <div class="filter-group">
                     <label>Kích cỡ</label><br>
-                    <input type="checkbox" name="size" value="38"> 38<br>
-                    <input type="checkbox" name="size" value="39"> 39<br>
-                    <input type="checkbox" name="size" value="40"> 40<br>
-                    <input type="checkbox" name="size" value="41"> 41<br>
-                    <input type="checkbox" name="size" value="42"> 42<br>
+                    <input type="checkbox" name="size[]" value="38" <?php if(!empty($_GET['size']) && in_array('38', (array)$_GET['size'])) echo 'checked'; ?>> 38<br>
+                    <input type="checkbox" name="size[]" value="39" <?php if(!empty($_GET['size']) && in_array('39', (array)$_GET['size'])) echo 'checked'; ?>> 39<br>
+                    <input type="checkbox" name="size[]" value="40" <?php if(!empty($_GET['size']) && in_array('40', (array)$_GET['size'])) echo 'checked'; ?>> 40<br>
+                    <input type="checkbox" name="size[]" value="41" <?php if(!empty($_GET['size']) && in_array('41', (array)$_GET['size'])) echo 'checked'; ?>> 41<br>
+                    <input type="checkbox" name="size[]" value="42" <?php if(!empty($_GET['size']) && in_array('42', (array)$_GET['size'])) echo 'checked'; ?>> 42<br>
                 </div>
                 <button type="submit" class="btn btn-primary">Lọc</button>
             </form>
@@ -102,7 +148,8 @@ $result = $product->query($sql);
             }
             ?>
         </div>
-   </div>
+    </div> <!-- Kết thúc .main-content -->
+    <?php include 'phantrang.php'; ?>
     <!-- Footer -->
     <div class="footer">
         <div class="footer-row">
@@ -134,7 +181,6 @@ $result = $product->query($sql);
             </div>
         </div>
     </div>
-            <script src="../jquery-3.7.1.js"></script>
     <script>
     $(function(){
         $.getJSON('../backend/categories/category_get.php', function(data){

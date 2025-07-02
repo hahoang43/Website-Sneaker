@@ -25,7 +25,7 @@ if (!$row) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
-   <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Header -->
@@ -176,42 +176,6 @@ if (!$row) {
     });
     </script>
     <script src="../js/auth.js"></script>
-<script>
-document.querySelector('.btn-add-cart').addEventListener('click', function(e) {
-    var img = document.getElementById('main-product-img');
-    var cart = document.getElementById('cart-icon');
-    if (!img || !cart) return;
-                               
-    // Lấy vị trí ảnh và giỏ hàng
-    var imgRect = img.getBoundingClientRect();
-    var cartRect = cart.getBoundingClientRect();
 
-    // Tạo ảnh bay
-    var flyImg = img.cloneNode(true);
-    flyImg.classList.add('fly-img');
-    document.body.appendChild(flyImg);
-
-    // Đặt vị trí ban đầu
-    flyImg.style.left = imgRect.left + 'px';
-    flyImg.style.top = imgRect.top + 'px';
-    flyImg.style.width = imgRect.width + 'px';
-    flyImg.style.height = imgRect.height + 'px';
-
-    // Bắt buộc browser render lại
-    flyImg.offsetWidth;
-
-    // Di chuyển đến giỏ hàng
-    flyImg.style.left = cartRect.left + (cartRect.width/2 - 30) + 'px';
-    flyImg.style.top = cartRect.top + (cartRect.height/2 - 30) + 'px';
-    flyImg.style.width = '60px';
-    flyImg.style.height = '60px';
-    flyImg.style.opacity = '0.5';
-
-    // Xóa ảnh bay sau khi kết thúc hiệu ứng
-    setTimeout(function() {
-        flyImg.remove();
-    }, 900);
-});
-</script>
 </body>
 </html>
