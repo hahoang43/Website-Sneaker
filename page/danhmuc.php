@@ -12,8 +12,26 @@ $where = "category_id = $category_id";
 if (!empty($_GET['brand'])) {
     $brands = is_array($_GET['brand']) ? $_GET['brand'] : [$_GET['brand']];
     $brands = array_map('addslashes', $brands);
-    $brands_in = "'" . implode("','", $brands) . "'";
-    $where .= " AND brand IN ($brands_in)";
+
+    $known_brands = ['Nike', 'Adidas', 'Puma'];
+    $where_brand = [];
+
+    // Nếu chọn các brand cụ thể
+    $selected_brands = array_intersect($brands, $known_brands);
+    if (!empty($selected_brands)) {
+        $brands_in = "'" . implode("','", $selected_brands) . "'";
+        $where_brand[] = "brand IN ($brands_in)";
+    }
+
+    // Nếu chọn "Khác"
+    if (in_array('Khác', $brands)) {
+        $brands_not_in = "'" . implode("','", $known_brands) . "'";
+        $where_brand[] = "brand NOT IN ($brands_not_in)";
+    }
+
+    if (!empty($where_brand)) {
+        $where .= " AND (" . implode(' OR ', $where_brand) . ")";
+    }
 }
 
 // Lọc giá
@@ -126,6 +144,12 @@ $result = $product->query($sql);
                     <input type="checkbox" name="size[]" value="40" <?php if(!empty($_GET['size']) && in_array('40', (array)$_GET['size'])) echo 'checked'; ?>> 40<br>
                     <input type="checkbox" name="size[]" value="41" <?php if(!empty($_GET['size']) && in_array('41', (array)$_GET['size'])) echo 'checked'; ?>> 41<br>
                     <input type="checkbox" name="size[]" value="42" <?php if(!empty($_GET['size']) && in_array('42', (array)$_GET['size'])) echo 'checked'; ?>> 42<br>
+                </div>
+                <div class="filter-group">
+                    <label>Phụ kiện</label><br>
+                    <input type="checkbox" name="accessory_price[]" value="50-100k" <?php if(!empty($_GET['accessory_price']) && in_array('50-100k', (array)$_GET['accessory_price'])) echo 'checked'; ?>> 50k - 100k<br>
+                    <input type="checkbox" name="accessory_price[]" value="100-200k" <?php if(!empty($_GET['accessory_price']) && in_array('100-200k', (array)$_GET['accessory_price'])) echo 'checked'; ?>> 100k - 200k<br>
+                    <input type="checkbox" name="accessory_price[]" value="200-500k" <?php if(!empty($_GET['accessory_price']) && in_array('200-500k', (array)$_GET['accessory_price'])) echo 'checked'; ?>> 200k - 500k<br>
                 </div>
                 <button type="submit" class="btn btn-primary">Lọc</button>
             </form>
