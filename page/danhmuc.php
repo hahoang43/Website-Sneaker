@@ -110,8 +110,9 @@ $result = $product->query($sql);
             <a href="dangnhap.html" class="cart-btn">
                 <i class="fa-solid fa-user"></i>
             </a>
-            <a href="giohang.html" class="cart-btn">
+            <a href="giohang.php" class="cart-btn">
                 <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count"><?= $totalQuantity ?></span>
             </a>
         </div>
     </div>
