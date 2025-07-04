@@ -135,9 +135,10 @@ CREATE TABLE Order_Details (
 INSERT INTO Size (size_value) VALUES 
 ('36'), ('37'), ('38'), ('39'), ('40'), ('41'), ('42'), ('43');
 
--- Thêm 20 sản phẩm giày sneaker mẫu vào bảng Product
+
 INSERT INTO Product (category_id, title, price, color, thumbnail, description, brand)
 VALUES
+<<<<<<< HEAD
 <<<<<<< HEAD
 (1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.'),
 (1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.'),
@@ -202,6 +203,50 @@ VALUES
 (1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
 (1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok');
 >>>>>>> 561fc3c511bdda1ea84e18641f40824a8cfdcb09
+=======
+
+(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.', 'Nike'),
+(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.', 'Adidas'),
+(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.', 'Converse'),
+(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Vans Old Skool với sọc trắng đặc trưng.', 'Vans'),
+(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Puma Suede Classic mềm mại, thời trang.', 'Puma'),
+(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Nike Air Max 97 với đế khí êm ái.', 'Nike'),
+(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Adidas Stan Smith đơn giản, thanh lịch.', 'Adidas'),
+(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'New Balance 574 êm ái, phù hợp đi bộ.', 'New Balance'),
+(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Reebok Classic Leather bền bỉ, cá tính.', 'Reebok'),
+(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Nike Dunk Low phối màu trẻ trung.', 'Nike'),
+(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Adidas NMD R1 công nghệ Boost hiện đại.', 'Adidas'),
+(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Vans Slip-On tiện lợi, dễ mang.', 'Vans'),
+(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Nike Blazer Mid cổ cao, cá tính.', 'Nike'),
+(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Fila Disruptor II đế chunky nổi bật.', 'Fila'),
+(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Puma RS-X phối màu hiện đại.', 'Puma'),
+(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Adidas Yeezy Boost 350 thiết kế độc đáo.', 'Adidas'),
+(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.', 'Nike'),
+(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.', 'Converse'),
+(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
+(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok'),
+(2, 'Nike Air Max 270 React', 2700000, 'Trắng/Hồng', 'airmax270react.jpg', 'Nike Air Max 270 React là sự kết hợp giữa công nghệ đệm Air Max nổi tiếng và lớp đệm React siêu êm ái, mang lại cảm giác thoải mái tối đa cho mỗi bước chân.', 'Nike'),
+(2, 'Adidas Forum Low White', 2300000, 'Trắng/Kem', 'forumlowwhite.jpg', 'Adidas Forum Low White mang phong cách bóng rổ cổ điển, thiết kế chunky vừa phải, năng động.', 'Adidas'),
+(2, 'Converse Chuck 70 Low Parchment', 1700000, 'Trắng ngà', 'chuck70lowparchment.jpg', 'Converse Chuck 70 Low Parchment là phiên bản nâng cấp của Chuck Taylor cổ điển, màu sắc trung tính dễ phối đồ.', 'Converse'),
+(2, 'New Balance 530', 2500000, 'Xám', 'nb530.jpg', 'New Balance 530 là đôi giày dad shoe nổi bật với vẻ ngoài chunky và retro.', 'New Balance'),
+(2, 'Nike Dunk Low Light Bone', 2800000, 'Trắng ngà/Nâu nhạt', 'dunklowlb.jpg', 'Nike Dunk Low Light Bone phối màu trung tính, nhẹ nhàng và thanh lịch.', 'Nike'),
+(2, 'PUMA Mayze Lth White', 2000000, 'Trắng', 'mayzelthwhite.jpg', 'PUMA Mayze Lth White là một đôi sneaker có đế platform cao, chất liệu da cao cấp.', 'Puma'),
+(2, 'Adidas Gazelle Bold Pink Glow', 2600000, 'Hồng phấn/Trắng', 'gazelleboldpinkglow.jpg', 'Adidas Gazelle Bold Pink Glow kết hợp phong cách retro và hiện đại.', 'Adidas'),
+(2, 'Nike Blazer Mid 77 Vintage White/Black', 2400000, 'Trắng/Đen', 'blazermid77wb.jpg', 'Nike Blazer Mid 77 Vintage White/Black mang đến vẻ ngoài retro cổ điển.', 'Nike'),
+(2, 'ASICS Gel-Kayano 14', 3500000, 'Bạc/Trắng', 'gelkayano14.jpg', 'ASICS Gel-Kayano 14 là một đôi giày chạy bộ hiệu năng cao, thiết kế chunky.', 'ASICS'),
+(2, 'Veja V-10 White/Black', 3200000, 'Trắng/Đen', 'vejav10wb.jpg', 'Veja V-10 White/Black là lựa chọn lý tưởng cho thời trang bền vững.', 'Veja'),
+(2, 'Adidas Falcon', 2400000, 'Hồng/Xám', 'falcon.jpg', 'Adidas Falcon nổi bật với form chunky đậm chất thập niên 90.', 'Adidas'),
+(2, 'Puma Cali Dream', 2100000, 'Trắng/Xanh', 'calidream.jpg', 'Puma Cali Dream là lựa chọn lý tưởng cho những cô nàng hiện đại.', 'Puma'),
+(2, 'New Balance 237', 2000000, 'Be/Hồng', 'nb237.jpg', 'New Balance 237 mang phong cách retro hiện đại với chất liệu vải thoáng khí.', 'New Balance'),
+(2, 'Converse Chuck Taylor Lift', 1900000, 'Trắng', 'ctaylorlift.jpg', 'Converse Chuck Taylor Lift là phiên bản platform nâng cấp từ mẫu cổ điển.', 'Converse'),
+(2, 'Vans Old Skool Pastel', 1700000, 'Xanh pastel', 'oldskoolpastel.jpg', 'Vans Old Skool Pastel giữ nguyên thiết kế cổ điển với đường sọc trắng đặc trưng.', 'Vans'),
+(2, 'Reebok Club C Double', 1800000, 'Trắng/Xanh lá', 'clubcdouble.jpg', 'Reebok Club C Double là mẫu sneaker có đế dày với thiết kế thể thao tối giản.', 'Reebok'),
+(2, 'Fila Electrove 2', 2200000, 'Trắng/Hồng', 'electrove2.jpg', 'Fila Electrove 2 gây ấn tượng với thiết kế chunky đặc trưng.', 'Fila'),
+(2, 'Nike Waffle One', 2300000, 'Xám/Hồng', 'waffleone.jpg', 'Nike Waffle One kết hợp vẻ ngoài hiện đại với lưới thoáng khí.', 'Nike'),
+(2, 'Adidas Stan Smith Bold', 2500000, 'Trắng/Vàng', 'stansmithbold.jpg', 'Adidas Stan Smith Bold là phiên bản nâng đế của dòng giày huyền thoại Stan Smith.', 'Adidas');
+
+
+>>>>>>> 871a89be192a9285ecf425f7256b0d71bff3ed98
 
 -- Thêm size cho từng sản phẩm (giả sử mỗi sản phẩm có đủ size 38, 39, 40, 41, 42, 43)
 INSERT INTO Product_Size (product_id, size_id, quantity) VALUES
