@@ -139,87 +139,86 @@ INSERT INTO Size (size_value) VALUES
 INSERT INTO Product (category_id, title, price, color, thumbnail, description, brand)
 VALUES
 
-(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Nike Air Force 1 cổ điển, phù hợp mọi phong cách.', 'Nike'),
-(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Adidas Superstar với thiết kế vỏ sò đặc trưng.', 'Adidas'),
-(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Converse Chuck Taylor cổ cao, trẻ trung năng động.', 'Converse'),
-(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Vans Old Skool với sọc trắng đặc trưng.', 'Vans'),
-(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Puma Suede Classic mềm mại, thời trang.', 'Puma'),
-(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Nike Air Max 97 với đế khí êm ái.', 'Nike'),
-(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Adidas Stan Smith đơn giản, thanh lịch.', 'Adidas'),
-(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'New Balance 574 êm ái, phù hợp đi bộ.', 'New Balance'),
-(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Reebok Classic Leather bền bỉ, cá tính.', 'Reebok'),
-(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Nike Dunk Low phối màu trẻ trung.', 'Nike'),
-(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Adidas NMD R1 công nghệ Boost hiện đại.', 'Adidas'),
-(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Vans Slip-On tiện lợi, dễ mang.', 'Vans'),
-(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Nike Blazer Mid cổ cao, cá tính.', 'Nike'),
-(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Fila Disruptor II đế chunky nổi bật.', 'Fila'),
-(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Puma RS-X phối màu hiện đại.', 'Puma'),
-(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Adidas Yeezy Boost 350 thiết kế độc đáo.', 'Adidas'),
-(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Nike Air Jordan 1 huyền thoại bóng rổ.', 'Nike'),
-(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Converse One Star trẻ trung, năng động.', 'Converse'),
-(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'New Balance 997 chất liệu cao cấp.', 'New Balance'),
-(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Reebok Club C 85 phong cách retro.', 'Reebok'),
-(2, 'Nike Air Max 270 React', 2700000, 'Trắng/Hồng', 'airmax270react.jpg', 'Nike Air Max 270 React là sự kết hợp giữa công nghệ đệm Air Max nổi tiếng và lớp đệm React siêu êm ái, mang lại cảm giác thoải mái tối đa cho mỗi bước chân.', 'Nike'),
-(2, 'Adidas Forum Low White', 2300000, 'Trắng/Kem', 'forumlowwhite.jpg', 'Adidas Forum Low White mang phong cách bóng rổ cổ điển, thiết kế chunky vừa phải, năng động.', 'Adidas'),
-(2, 'Converse Chuck 70 Low Parchment', 1700000, 'Trắng ngà', 'chuck70lowparchment.jpg', 'Converse Chuck 70 Low Parchment là phiên bản nâng cấp của Chuck Taylor cổ điển, màu sắc trung tính dễ phối đồ.', 'Converse'),
-(2, 'New Balance 530', 2500000, 'Xám', 'nb530.jpg', 'New Balance 530 là đôi giày dad shoe nổi bật với vẻ ngoài chunky và retro.', 'New Balance'),
-(2, 'Nike Dunk Low Light Bone', 2800000, 'Trắng ngà/Nâu nhạt', 'dunklowlb.jpg', 'Nike Dunk Low Light Bone phối màu trung tính, nhẹ nhàng và thanh lịch.', 'Nike'),
-(2, 'PUMA Mayze Lth White', 2000000, 'Trắng', 'mayzelthwhite.jpg', 'PUMA Mayze Lth White là một đôi sneaker có đế platform cao, chất liệu da cao cấp.', 'Puma'),
-(2, 'Adidas Gazelle Bold Pink Glow', 2600000, 'Hồng phấn/Trắng', 'gazelleboldpinkglow.jpg', 'Adidas Gazelle Bold Pink Glow kết hợp phong cách retro và hiện đại.', 'Adidas'),
-(2, 'Nike Blazer Mid 77 Vintage White/Black', 2400000, 'Trắng/Đen', 'blazermid77wb.jpg', 'Nike Blazer Mid 77 Vintage White/Black mang đến vẻ ngoài retro cổ điển.', 'Nike'),
-(2, 'ASICS Gel-Kayano 14', 3500000, 'Bạc/Trắng', 'gelkayano14.jpg', 'ASICS Gel-Kayano 14 là một đôi giày chạy bộ hiệu năng cao, thiết kế chunky.', 'ASICS'),
-(2, 'Veja V-10 White/Black', 3200000, 'Trắng/Đen', 'vejav10wb.jpg', 'Veja V-10 White/Black là lựa chọn lý tưởng cho thời trang bền vững.', 'Veja'),
-(2, 'Adidas Falcon', 2400000, 'Hồng/Xám', 'falcon.jpg', 'Adidas Falcon nổi bật với form chunky đậm chất thập niên 90.', 'Adidas'),
-(2, 'Puma Cali Dream', 2100000, 'Trắng/Xanh', 'calidream.jpg', 'Puma Cali Dream là lựa chọn lý tưởng cho những cô nàng hiện đại.', 'Puma'),
-(2, 'New Balance 237', 2000000, 'Be/Hồng', 'nb237.jpg', 'New Balance 237 mang phong cách retro hiện đại với chất liệu vải thoáng khí.', 'New Balance'),
-(2, 'Converse Chuck Taylor Lift', 1900000, 'Trắng', 'ctaylorlift.jpg', 'Converse Chuck Taylor Lift là phiên bản platform nâng cấp từ mẫu cổ điển.', 'Converse'),
-(2, 'Vans Old Skool Pastel', 1700000, 'Xanh pastel', 'oldskoolpastel.jpg', 'Vans Old Skool Pastel giữ nguyên thiết kế cổ điển với đường sọc trắng đặc trưng.', 'Vans'),
-(2, 'Reebok Club C Double', 1800000, 'Trắng/Xanh lá', 'clubcdouble.jpg', 'Reebok Club C Double là mẫu sneaker có đế dày với thiết kế thể thao tối giản.', 'Reebok'),
-(2, 'Fila Electrove 2', 2200000, 'Trắng/Hồng', 'electrove2.jpg', 'Fila Electrove 2 gây ấn tượng với thiết kế chunky đặc trưng.', 'Fila'),
-(2, 'Nike Waffle One', 2300000, 'Xám/Hồng', 'waffleone.jpg', 'Nike Waffle One kết hợp vẻ ngoài hiện đại với lưới thoáng khí.', 'Nike'),
-(2, 'Adidas Stan Smith Bold', 2500000, 'Trắng/Vàng', 'stansmithbold.jpg', 'Adidas Stan Smith Bold là phiên bản nâng đế của dòng giày huyền thoại Stan Smith.', 'Adidas');
+(1, 'Nike Air Force 1', 2500000, 'Trắng', 'Air Force 1.jpg', 'Chất liệu da tổng hợp, cổ thấp, đế cao su chống trượt, lỗ thoáng khí mũi giày, lót giày êm ái.', 'Nike'),
+(1, 'Adidas Superstar', 2200000, 'Trắng/Đen', 'superstar.jpg', 'Da trơn cao cấp, mũi vỏ sò đặc trưng, đế cao su nguyên khối, cổ thấp, đệm EVA nhẹ.', 'Adidas'),
+(1, 'Converse Chuck Taylor', 1800000, 'Đen', 'chucktaylor.jpg', 'Canvas cao cấp, cổ cao, đế cao su chống trượt, mũi bọc cao su, lót mềm.', 'Converse'),
+(1, 'Vans Old Skool', 1700000, 'Đen/Trắng', 'oldskool.jpg', 'Canvas và da lộn, đế waffle bám đường, cổ thấp, đường sọc trắng đặc trưng, lót đệm nhẹ.', 'Vans'),
+(1, 'Puma Suede Classic', 1600000, 'Xanh Navy', 'pumasuede.jpg', 'Da lộn mềm mại, cổ thấp, đế cao su bền bỉ, lỗ xỏ kim loại, logo Puma nổi.', 'Puma'),
+(1, 'Nike Air Max 97', 3500000, 'Bạc', 'airmax97.jpg', 'Thân vải lưới & da, đệm khí toàn bàn chân, cổ thấp, đế cao su rãnh sâu, dây giày ẩn.', 'Nike'),
+(1, 'Adidas Stan Smith', 2100000, 'Trắng/Xanh', 'stansmith.jpg', 'Da tổng hợp, lỗ ba sọc thoáng khí, cổ thấp, đế cao su, form cổ điển.', 'Adidas'),
+(1, 'New Balance 574', 2000000, 'Xám', 'nb574.jpg', 'Da lộn & lưới, đệm ENCAP, cổ thấp, đế cao su, form retro.', 'New Balance'),
+(1, 'Reebok Classic Leather', 1900000, 'Trắng', 'reebokclassic.jpg', 'Da mềm, cổ thấp, đế cao su chống trượt, đệm EVA, lót thoải mái.', 'Reebok'),
+(1, 'Nike Dunk Low', 3200000, 'Đa sắc', 'dunklow.jpg', 'Da thật, cổ thấp, đế cao su phẳng, lưỡi gà có đệm, kiểu dáng cổ điển.', 'Nike'),
+(1, 'Adidas NMD R1', 3300000, 'Đen', 'nmdr1.jpg', 'Primeknit co giãn, đế Boost, cổ tất ôm chân, đệm EVA hông, đế cao su dẻo.', 'Adidas'),
+(1, 'Vans Slip-On', 1500000, 'Trắng', 'vansslipon.jpg', 'Canvas bền, không dây, đế waffle, cổ thấp, lót giày êm nhẹ.', 'Vans'),
+(1, 'Nike Blazer Mid', 2700000, 'Trắng/Đỏ', 'blazermid.jpg', 'Da tổng hợp, cổ mid cao, đế cao su, dây giày truyền thống, logo Swoosh lớn.', 'Nike'),
+(1, 'Fila Disruptor II', 1800000, 'Trắng', 'filadisruptor.jpg', 'Da tổng hợp, đế chunky răng cưa, cổ thấp, lưỡi gà dày, logo Fila nổi.', 'Fila'),
+(1, 'Puma RS-X', 2500000, 'Xanh/Đỏ', 'pumarsx.jpg', 'Da lộn + lưới, đệm RS êm, đế cao su dày, cổ thấp, thiết kế trẻ trung.', 'Puma'),
+(1, 'Adidas Yeezy Boost 350', 6000000, 'Xám', 'yeezy350.jpg', 'Thân Primeknit co giãn, đế Boost đàn hồi, cổ tất ôm sát, dây tròn, đế vân nổi.', 'Adidas'),
+(1, 'Nike Air Jordan 1', 5500000, 'Đỏ/Đen', 'airjordan1.jpg', 'Da thật cao cấp, cổ cao, đệm Air gót chân, đế cao su, logo Jordan đặc trưng.', 'Nike'),
+(1, 'Converse One Star', 1700000, 'Đen/Trắng', 'onestar.jpg', 'Da lộn, cổ thấp, đế cao su cổ điển, logo ngôi sao bên hông, đệm nhẹ.', 'Converse'),
+(1, 'New Balance 997', 3200000, 'Xám/Xanh', 'nb997.jpg', 'Da lộn & mesh, đế ENCAP, cổ thấp, đế ngoài cao su, lót mềm mại.', 'New Balance'),
+(1, 'Reebok Club C 85', 1600000, 'Trắng/Xanh', 'clubc85.jpg', 'Da mềm, cổ thấp, đế cao su, lỗ thoáng khí mũi giày, phong cách retro.', 'Reebok'),
+(2, 'Nike Air Max 270 React', 2700000, 'Trắng/Hồng', 'airmax270react.jpg', 'Đệm Air gót lớn, React phía trước, thân vải lưới, cổ thấp, đế cao su bền.', 'Nike'),
+(2, 'Adidas Forum Low White', 2300000, 'Trắng/Kem', 'forumlowwhite.jpg', 'Da tổng hợp, dây buộc & quai dán, đế dày, cổ thấp, phong cách retro.', 'Adidas'),
+(2, 'Converse Chuck 70 Low Parchment', 1700000, 'Trắng ngà', 'chuck70lowparchment.jpg', 'Canvas dày, đế cao su bóng, cổ thấp, mũi cao su, lót Ortholite.', 'Converse'),
+(2, 'New Balance 530', 2500000, 'Xám', 'nb530.jpg', 'Lưới thoáng khí, đế ABZORB, cổ thấp, phong cách chunky, trọng lượng nhẹ.', 'New Balance'),
+(2, 'Nike Dunk Low Light Bone', 2800000, 'Trắng ngà/Nâu nhạt', 'dunklowlb.jpg', 'Da cao cấp, cổ thấp, đế cao su bám đường, phối màu trung tính, đệm lót êm.', 'Nike'),
+(2, 'PUMA Mayze Lth White', 2000000, 'Trắng', 'mayzelthwhite.jpg', 'Da cao cấp, đế platform dày, cổ thấp, lưỡi gà to, logo kim loại.', 'Puma'),
+(2, 'Adidas Gazelle Bold Pink Glow', 2600000, 'Hồng phấn/Trắng', 'gazelleboldpinkglow.jpg', 'Da lộn, đế nhiều lớp tăng chiều cao, cổ thấp, logo vàng kim, kiểu dáng retro.', 'Adidas'),
+(2, 'Nike Blazer Mid 77 Vintage White/Black', 2400000, 'Trắng/Đen', 'blazermid77wb.jpg', 'Da lộn & da tổng hợp, cổ mid, đế cao su, đường may vintage, logo Swoosh lớn.', 'Nike'),
+(2, 'ASICS Gel-Kayano 14', 3500000, 'Bạc/Trắng', 'gelkayano14.jpg', 'Lưới thoáng khí, đệm GEL toàn bàn chân, cổ thấp, khung nhựa hỗ trợ, đế cao su chịu lực.', 'ASICS'),
+(2, 'Veja V-10 White/Black', 3200000, 'Trắng/Đen', 'vejav10wb.jpg', 'Da sinh thái, đế cao su tái chế, cổ thấp, logo V bên hông, sản xuất bền vững.', 'Veja'),
+(2, 'Adidas Falcon', 2400000, 'Hồng/Xám', 'falcon.jpg', 'Da lộn & mesh, đế EVA chunky, cổ thấp, phong cách thập niên 90, lưỡi gà dày.', 'Adidas'),
+(2, 'Puma Cali Dream', 2100000, 'Trắng/Xanh', 'calidream.jpg', 'Da cao cấp, đế platform, cổ thấp, logo Puma nổi, đệm êm nhẹ.', 'Puma'),
+(2, 'New Balance 237', 2000000, 'Be/Hồng', 'nb237.jpg', 'Canvas + da lộn, đế cao su mềm, cổ thấp, kiểu dáng retro, lưỡi gà mỏng.', 'New Balance'),
+(2, 'Converse Chuck Taylor Lift', 1900000, 'Trắng', 'ctaylorlift.jpg', 'Canvas dày, đế platform cao, cổ thấp, mũi cao su, đệm nâng nhẹ.', 'Converse'),
+(2, 'Vans Old Skool Pastel', 1700000, 'Xanh pastel', 'oldskoolpastel.jpg', 'Canvas pastel, cổ thấp, đế waffle cao su, da lộn viền, đường sọc trắng đặc trưng.', 'Vans'),
+(2, 'Reebok Club C Double', 1800000, 'Trắng/Xanh lá', 'clubcdouble.jpg', 'Da tổng hợp, đế cao, cổ thấp, lót êm, thiết kế tối giản.', 'Reebok'),
+(2, 'Fila Electrove 2', 2200000, 'Trắng/Hồng', 'electrove2.jpg', 'Da tổng hợp, đế chunky nhiều lớp, cổ thấp, lưỡi gà dày, form thể thao.', 'Fila'),
+(2, 'Nike Waffle One', 2300000, 'Xám/Hồng', 'waffleone.jpg', 'Mesh thoáng khí, đế waffle cao su, gót TPU trong suốt, cổ thấp, lót êm.', 'Nike'),
+(2, 'Adidas Stan Smith Bold', 2500000, 'Trắng/Vàng', 'stansmithbold.jpg', 'Da cao cấp, đế platform nâng cao, lỗ thoáng khí, cổ thấp, phối màu nổi bật.', 'Adidas');
 
 
 
 -- Thêm size cho từng sản phẩm (giả sử mỗi sản phẩm có đủ size 38, 39, 40, 41, 42, 43)
 INSERT INTO Product_Size (product_id, size_id, quantity) VALUES
--- Nike Air Force 1 (id=1)
-(1, 3, 10), (1, 4, 10), (1, 5, 10), (1, 6, 10), (1, 7, 10), (1, 8, 10),
--- Adidas Superstar (id=2)
-(2, 3, 8), (2, 4, 8), (2, 5, 8), (2, 6, 8), (2, 7, 8), (2, 8, 8),
--- Converse Chuck Taylor (id=3)
-(3, 3, 12), (3, 4, 12), (3, 5, 12), (3, 6, 12), (3, 7, 12), (3, 8, 12),
--- Vans Old Skool (id=4)
-(4, 3, 7), (4, 4, 7), (4, 5, 7), (4, 6, 7), (4, 7, 7), (4, 8, 7),
--- Puma Suede Classic (id=5)
-(5, 3, 9), (5, 4, 9), (5, 5, 9), (5, 6, 9), (5, 7, 9), (5, 8, 9),
--- Nike Air Max 97 (id=6)
-(6, 3, 6), (6, 4, 6), (6, 5, 6), (6, 6, 6), (6, 7, 6), (6, 8, 6),
--- Adidas Stan Smith (id=7)
-(7, 3, 11), (7, 4, 11), (7, 5, 11), (7, 6, 11), (7, 7, 11), (7, 8, 11),
--- New Balance 574 (id=8)
-(8, 3, 10), (8, 4, 10), (8, 5, 10), (8, 6, 10), (8, 7, 10), (8, 8, 10),
--- Reebok Classic Leather (id=9)
-(9, 3, 8), (9, 4, 8), (9, 5, 8), (9, 6, 8), (9, 7, 8), (9, 8, 8),
--- Nike Dunk Low (id=10)
-(10, 3, 7), (10, 4, 7), (10, 5, 7), (10, 6, 7), (10, 7, 7), (10, 8, 7),
--- Adidas NMD R1 (id=11)
-(11, 3, 9), (11, 4, 9), (11, 5, 9), (11, 6, 9), (11, 7, 9), (11, 8, 9),
--- Vans Slip-On (id=12)
-(12, 3, 10), (12, 4, 10), (12, 5, 10), (12, 6, 10), (12, 7, 10), (12, 8, 10),
--- Nike Blazer Mid (id=13)
-(13, 3, 8), (13, 4, 8), (13, 5, 8), (13, 6, 8), (13, 7, 8), (13, 8, 8),
--- Fila Disruptor II (id=14)
-(14, 3, 7), (14, 4, 7), (14, 5, 7), (14, 6, 7), (14, 7, 7), (14, 8, 7),
--- Puma RS-X (id=15)
-(15, 3, 9), (15, 4, 9), (15, 5, 9), (15, 6, 9), (15, 7, 9), (15, 8, 9),
--- Adidas Yeezy Boost 350 (id=16)
-(16, 3, 5), (16, 4, 5), (16, 5, 5), (16, 6, 5), (16, 7, 5), (16, 8, 5),
--- Nike Air Jordan 1 (id=17)
-(17, 3, 6), (17, 4, 6), (17, 5, 6), (17, 6, 6), (17, 7, 6), (17, 8, 6),
--- Converse One Star (id=18)
-(18, 3, 8), (18, 4, 8), (18, 5, 8), (18, 6, 8), (18, 7, 8), (18, 8, 8),
--- New Balance 997 (id=19)
-(19, 3, 10), (19, 4, 10), (19, 5, 10), (19, 6, 10), (19, 7, 10), (19, 8, 10),
--- Reebok Club C 85 (id=20)
-(20, 3, 7), (20, 4, 7), (20, 5, 7), (20, 6, 7), (20, 7, 7), (20, 8, 7);
+(1, 3, 12), (1, 4, 7), (1, 6, 14), (1, 8, 9),
+(2, 3, 10), (2, 5, 8), (2, 6, 13), (2, 7, 6), (2, 8, 11),
+(3, 4, 9), (3, 5, 13), (3, 6, 7), (3, 7, 12),
+(4, 3, 8), (4, 4, 11), (4, 5, 6), (4, 7, 10), (4, 8, 13),
+(5, 3, 14), (5, 5, 7), (5, 6, 12), (5, 8, 9),
+(6, 4, 10), (6, 5, 8), (6, 6, 11), (6, 7, 7), (6, 8, 13),
+(7, 3, 9), (7, 4, 12), (7, 5, 6), (7, 6, 15),
+(8, 3, 11), (8, 5, 8), (8, 6, 13), (8, 7, 10), (8, 8, 7),
+(9, 4, 14), (9, 5, 9), (9, 6, 12), (9, 8, 8),
+(10, 3, 13), (10, 4, 7), (10, 5, 10), (10, 6, 11), (10, 7, 6),
+(11, 3, 8), (11, 5, 12), (11, 6, 9), (11, 7, 14),
+(12, 4, 10), (12, 5, 7), (12, 6, 13), (12, 8, 11),
+(13, 3, 9), (13, 4, 12), (13, 7, 8), (13, 8, 14),
+(14, 3, 11), (14, 5, 6), (14, 6, 10), (14, 7, 13), (14, 8, 7),
+(15, 4, 8), (15, 5, 14), (15, 6, 9), (15, 7, 12),
+(16, 3, 10), (16, 4, 7), (16, 5, 13), (16, 8, 11),
+(17, 3, 8), (17, 5, 12), (17, 6, 9), (17, 7, 14), (17, 8, 6),
+(18, 4, 11), (18, 5, 7), (18, 6, 13), (18, 8, 10),
+(19, 3, 9), (19, 4, 12), (19, 5, 8), (19, 7, 15),
+(20, 3, 14), (20, 4, 10), (20, 6, 7), (20, 7, 13), (20, 8, 8),
+(21, 3, 11), (21, 5, 9), (21, 6, 12), (21, 8, 7),
+(22, 4, 13), (22, 5, 8), (22, 6, 10), (22, 7, 14),
+(23, 3, 7), (23, 4, 12), (23, 5, 11), (23, 6, 9), (23, 8, 13),
+(24, 3, 10), (24, 5, 8), (24, 6, 15), (24, 7, 6),
+(25, 4, 14), (25, 5, 9), (25, 6, 12), (25, 8, 11),
+(26, 3, 8), (26, 4, 13), (26, 5, 7), (26, 6, 10), (26, 7, 12),
+(27, 3, 11), (27, 5, 6), (27, 6, 14), (27, 8, 9),
+(28, 4, 10), (28, 5, 13), (28, 6, 8), (28, 7, 12),
+(29, 3, 7), (29, 4, 11), (29, 5, 9), (29, 6, 14), (29, 8, 10),
+(30, 3, 12), (30, 5, 8), (30, 6, 13), (30, 7, 6),
+(31, 4, 9), (31, 5, 14), (31, 6, 11), (31, 8, 7),
+(32, 3, 10), (32, 4, 12), (32, 6, 8), (32, 7, 13), (32, 8, 9),
+(33, 3, 11), (33, 5, 7), (33, 6, 14), (33, 8, 10),
+(34, 4, 13), (34, 5, 9), (34, 6, 12), (34, 7, 8),
+(35, 3, 8), (35, 4, 11), (35, 5, 6), (35, 7, 14), (35, 8, 12),
+(36, 3, 10), (36, 5, 13), (36, 6, 9), (36, 8, 7),
+(37, 4, 12), (37, 5, 8), (37, 6, 11), (37, 7, 15),
+(38, 3, 14), (38, 4, 10), (38, 6, 7), (38, 8, 13),
+(39, 3, 9), (39, 5, 12), (39, 6, 8), (39, 7, 11);

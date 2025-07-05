@@ -119,9 +119,43 @@ if (!$row) {
             <h2>Mô tả</h2>
             <p>
                  <p class="product-desc"><?php echo nl2br(htmlspecialchars($row['description'] ?? '')); ?></p>
-            
+            </p>
         </div>
-    </div>
+
+        <!-- Sản phẩm khác -->
+        <div class="related-products">
+            <h2>Sản phẩm khác</h2>
+            <div class="product-list" id="related-products-list">
+            <?php
+                // Lấy tất cả sản phẩm khác, khác sản phẩm đang xem
+                $sqlRelated = "SELECT id, title, price, thumbnail FROM Product WHERE id != $id";
+                $resultRelated = $product->query($sqlRelated);
+                $relatedProducts = [];
+                if ($resultRelated && $resultRelated->num_rows > 0) {
+                    while ($r = $resultRelated->fetch_assoc()) {
+                        $relatedProducts[] = $r;
+                    }
+                }
+                // Hiển thị 4 sản phẩm đầu tiên
+                for ($i = 0; $i < min(4, count($relatedProducts)); $i++) {
+                    $r = $relatedProducts[$i];
+                    echo '<div class="product-item">';
+                    echo '<a href="chitietsanpham.php?id=' . $r['id'] . '">';
+                    echo '<img src="../uploads/' . htmlspecialchars($r['thumbnail']) . '" alt="' . htmlspecialchars($r['title']) . '">';
+                    echo '<div class="product-title">' . htmlspecialchars($r['title']) . '</div>';
+                    echo '<div class="product-price">' . number_format($r['price'], 0, ',', '.') . '₫</div>';
+                    echo '</a>';
+                    echo '</div>';
+                }
+            ?>
+            </div>
+            <?php if (count($relatedProducts) > 4): ?>
+            <div class="related-pagination" style="text-align:center;margin-top:10px;">
+                <button id="prev-related" disabled>&laquo; Trước</button>
+                <button id="next-related">Sau &raquo;</button>
+            </div>
+            <?php endif; ?>
+        </div>
         <div class="review-form">
     <h3 class="review-title">Gửi đánh giá của bạn</h3>
     <form>

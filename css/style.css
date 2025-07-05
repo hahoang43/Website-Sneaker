@@ -283,7 +283,7 @@
     margin: 14px ;
 }
 .sidebar {
-    width: 370px;
+    width: 200px;
     background: #fae4e4;
     padding: 35px 31px;
     border-radius: 10px;
@@ -499,7 +499,7 @@ hr {
 }
 .product-detail-flex {
     display: flex;
-    gap: 5px;
+
 }
 .product-detail-image img {
     width: 100%;
@@ -570,7 +570,7 @@ hr {
 }
 .btn-buy-now {
     margin-left: 10px;
-    background-color: #555;
+    background-color: #102d98;
     color: white;
     padding: 12px 24px;
     border: none;
