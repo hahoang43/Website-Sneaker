@@ -4,7 +4,7 @@ $productObj = new Product();
 
 $keyword = isset($_GET['q']) ? $productObj->escape($_GET['q']) : '';
 
-// Xử lý lọc (giống danh mục)
+
 $where = "1";
 if ($keyword !== '') {
     $where .= " AND (
@@ -118,9 +118,7 @@ $result = $productObj->query($sql);
             <a href="dangnhap.html" class="cart-btn">
                 <i class="fa-solid fa-user"></i>
             </a>
-            <a href="giohang.html" class="cart-btn">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+             <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </div>
 

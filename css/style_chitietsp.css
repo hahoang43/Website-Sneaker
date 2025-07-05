@@ -1,4 +1,53 @@
 
+.feedback-list {
+    margin-top: 2.5rem;
+    background: #f7fafc;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(49, 130, 206, 0.07);
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.feedback-list h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3182ce;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+.feedback-item {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 0 0.7rem 0;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s;
+}
+.feedback-item:last-child {
+    border-bottom: none;
+}
+.feedback-item b {
+    color: #2b6cb0;
+    font-size: 1.05rem;
+}
+.feedback-item span {
+    display: block;
+    margin-top: 2px;
+    color: #4a5568;
+    font-size: 0.98rem;
+}
+.feedback-item .subject {
+    font-weight: 600;
+    color: #e02424;
+    margin-top: 2px;
+    font-size: 1rem;
+}
+.feedback-item .note {
+    margin-top: 4px;
+    color: #222;
+    font-size: 1.01rem;
+    line-height: 1.6;
+}
+
 
 /* Product Detail Flex */
 .product-detail-flex {
@@ -140,7 +189,7 @@
     line-height: 1.7;
 }
 
-/* Review Form */
+
 .review-form {
     margin-top: 2rem;
     padding: 1.5rem;
