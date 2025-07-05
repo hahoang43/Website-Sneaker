@@ -92,12 +92,11 @@ $result = $product->query($sql);
     <div class="header">
         <div class="logo">
             <h2>
-                <a href="index.html"> 
+                <a href="index.php"> 
                     <img src="../images/anh_banner/logo.jpg" alt="Logo"> 
                 </a>
             </h2>
         </div>
-        <!-- Search -->
        <!-- search- -->
     <div class="search-container">
     <input type="text" id="search-input">
@@ -107,7 +106,7 @@ $result = $product->query($sql);
     <script src="../js/search.js" > </script>
         <!-- Sign -->
         <div class="sign">
-            <a href="dangnhap.html" class="cart-btn">
+            <a href="dangnhap.php" class="cart-btn">
                 <i class="fa-solid fa-user"></i>
             </a>
             <a href="giohang.php" class="cart-btn">
@@ -119,7 +118,6 @@ $result = $product->query($sql);
 
     <!-- MENU động -->
     <div class="menu" id="main-menu"></div>
-
     <!-- Body -->
     <div class="main-content">
         <div class="sidebar">
@@ -173,10 +171,12 @@ $result = $product->query($sql);
             }
             ?>
         </div>
-    </div> <!-- Kết thúc .main-content -->
-    <?php include 'phantrang.php'; ?>
+      </div> <!-- Kết thúc .main-content -->
+    
+        <?php include 'phantrang.php'; ?>
     <!-- Footer -->
     <div class="footer">
+  
         <div class="footer-row">
             <div class="footer-col">
                 <h4>Giới thiệu</h4>
@@ -209,7 +209,7 @@ $result = $product->query($sql);
     <script>
     $(function(){
         $.getJSON('../backend/categories/category_get.php', function(data){
-            let html = '<a href="index.html">Trang chủ</a>';
+            let html = '<a href="index.php">Trang chủ</a>';
             data.forEach(function(item){
                 html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
             });

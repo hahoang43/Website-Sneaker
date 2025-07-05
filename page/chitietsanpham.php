@@ -32,7 +32,7 @@ if (!$row) {
     <div class="header">
         <div class="logo">
             <h2>
-                <a href="index.html">
+                <a href="index.php">
                     <img src="../images/anh_banner/logo.jpg" alt="Logo">
                 </a>
             </h2>
@@ -121,7 +121,21 @@ if (!$row) {
             </p>
         </div>
 
-        <!-- Sản phẩm khác -->
+       
+        <div class="review-form">
+    <h3 class="review-title">Gửi đánh giá của bạn</h3>
+    <form>
+        <label for="reviewerName" class="review-label">Tên của bạn:</label>
+        <input type="text" id="reviewerName" name="reviewerName" class="review-input">
+        <label for="reviewContent" class="review-label">Nội dung đánh giá:</label>
+        <textarea id="reviewContent" name="reviewContent" rows="4" class="review-textarea"></textarea>
+
+        <button type="submit" class="review-button">Gửi đánh giá</button>
+    </form>
+</div>
+
+    </div>
+     <!-- Sản phẩm khác -->
         <div class="related-products">
             <h2>Sản phẩm khác</h2>
             <div class="product-list" id="related-products-list">
@@ -155,19 +169,6 @@ if (!$row) {
             </div>
             <?php endif; ?>
         </div>
-        <div class="review-form">
-    <h3 class="review-title">Gửi đánh giá của bạn</h3>
-    <form>
-        <label for="reviewerName" class="review-label">Tên của bạn:</label>
-        <input type="text" id="reviewerName" name="reviewerName" class="review-input">
-        <label for="reviewContent" class="review-label">Nội dung đánh giá:</label>
-        <textarea id="reviewContent" name="reviewContent" rows="4" class="review-textarea"></textarea>
-
-        <button type="submit" class="review-button">Gửi đánh giá</button>
-    </form>
-</div>
-
-    </div>
  <!-- Footer -->
 <div class="footer">
     <div class="footer-row">
@@ -203,7 +204,7 @@ if (!$row) {
     <script>
     $(function(){
         $.getJSON('../backend/categories/category_get.php', function(data){
-            let html = '<a href="index.html">Trang chủ</a>';
+            let html = '<a href="index.php">Trang chủ</a>';
             data.forEach(function(item){
                 html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
             });
@@ -242,6 +243,49 @@ $(document).ready(function() {
                 alert("❌ Có lỗi xảy ra khi thêm vào giỏ hàng!");
             }
         });
+    });
+});
+</script>
+<script>
+const relatedProducts = <?php echo json_encode($relatedProducts); ?>;
+const productsPerPage = 4;
+let currentPage = 0;
+
+function renderRelatedProducts() {
+    const start = currentPage * productsPerPage;
+    const end = start + productsPerPage;
+    const list = relatedProducts.slice(start, end);
+    let html = '';
+    list.forEach(function(r) {
+        html += `
+            <div class="product-item">
+                <a href="chitietsanpham.php?id=${r.id}">
+                    <img src="../uploads/${r.thumbnail}" alt="${r.title}">
+                    <div class="product-title">${r.title}</div>
+                    <div class="product-price">${Number(r.price).toLocaleString('vi-VN')}₫</div>
+                </a>
+            </div>
+        `;
+    });
+    $('#related-products-list').html(html);
+
+    // Cập nhật trạng thái nút
+    $('#prev-related').prop('disabled', currentPage === 0);
+    $('#next-related').prop('disabled', end >= relatedProducts.length);
+}
+
+$(document).ready(function() {
+    $('#prev-related').click(function() {
+        if (currentPage > 0) {
+            currentPage--;
+            renderRelatedProducts();
+        }
+    });
+    $('#next-related').click(function() {
+        if ((currentPage + 1) * productsPerPage < relatedProducts.length) {
+            currentPage++;
+            renderRelatedProducts();
+        }
     });
 });
 </script>

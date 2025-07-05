@@ -1,9 +1,9 @@
 // Tự động xác định đường dẫn tới giỏ hàng
 let gioHangLink = '';
 if (window.location.pathname.includes('/page/')) {
-  gioHangLink = '/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.php';
 } else {
-  gioHangLink = '/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.php';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -53,7 +53,7 @@ let dropdownItems = `
     credentials: 'include', 
           });
           alert('Đăng xuất thành công!');
-          window.location.href = 'dangnhap.html';
+          window.location.href = 'dangnhap.php';
         });
 
         // Toggle dropdown bằng click
@@ -75,8 +75,8 @@ let dropdownItems = `
       } else {
         // Nếu chưa đăng nhập
         signDiv.innerHTML = `
-          <a href="dangnhap.html" class="cart-btn"><i class="fa-solid fa-user"></i></a>
-          <a href="giohang.html" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="dangnhap.php" class="cart-btn"><i class="fa-solid fa-user"></i></a>
+          <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
       }
     } catch (err) {

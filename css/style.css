@@ -281,6 +281,8 @@
     display: flex;
     gap: 24px;
     margin: 14px ;
+    align-items: flex-start;
+    max-height: 900px;
 }
 .sidebar {
     width: 200px;

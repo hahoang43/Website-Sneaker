@@ -14,7 +14,7 @@
 <div class="header">
     <div class="logo">
         <h2>
-            <a href="index.html"> 
+            <a href="index.php"> 
             <img src="../images/anh_banner/logo.jpg" > </a> 
         </h2>
     </div>
@@ -30,20 +30,14 @@
    <a href="dangnhap.html" class="cart-btn">
         <i class="fa-solid fa-user"></i>
     </a>
-    <a href="giohang.html" class="cart-btn">
+    <a href="giohang.php" class="cart-btn">
         <i class="fa-solid fa-cart-shopping"></i>
     </a>
     </div>
 </div>
 
-<!-- MENU -->
-    <div class="menu">
-        <a href="index.html">Trang chủ</a>
-        <a href="danhmuc/giaynam.html"> Giày Nam</a>
-        <a href="danhmuc/giaynu.html"> Giày Nữ</a>
-        <a href="danhmuc/giaytreem.html"> Giày trẻ em </a>
-        <a href="danhmuc/phukiengiay.html"> Phụ kiện giày</a>
-    </div>
+<!-- Menu -->
+    <div class="menu" id="main-menu"></div>
 
     <!-- Auth Section -->
     <div class="auth-bg">
@@ -114,6 +108,18 @@
         </div>
     </div>
 </div>
+<script src="../jquery-3.7.1.js"> </script>
 <script src="../js/dangnhap.js"> </script>
+<script>
+    $(function(){
+        $.getJSON('../backend/categories/category_get.php', function(data){
+            let html = '<a href="index.php">Trang chủ</a>';
+            data.forEach(function(item){
+                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
+            });
+            $('#main-menu').html(html);
+        });
+    });
+    </script>
 </body>
 </html>

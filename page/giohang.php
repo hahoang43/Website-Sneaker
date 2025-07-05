@@ -14,6 +14,8 @@ $totalPrice = 0;
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <script src="../jquery-3.7.1.js"></script>
+
 </head>
 <body>
 
@@ -49,15 +51,8 @@ $totalPrice = 0;
         </a>
     </div>
 </div>
-
 <!-- Menu -->
-<div class="menu">
-    <a href="index.php">Trang chủ</a>
-    <a href="danhmuc/giaynam.php">Giày Nam</a>
-    <a href="danhmuc/giaynu.php">Giày Nữ</a>
-    <a href="danhmuc/giaytreem.php">Giày Trẻ Em</a>
-    <a href="danhmuc/phukiengiay.php">Phụ kiện giày</a>
-</div>
+    <div class="menu" id="main-menu"></div>
 
 <!-- Giỏ hàng -->
 <div class="cart">
@@ -169,10 +164,18 @@ $totalPrice = 0;
         </div>
     </div>
 </div>
-
 <script src="../js/auth.js"></script>
-
-
 <script src="../js/cart.js"></script>
+<script>
+    $(function(){
+        $.getJSON('../backend/categories/category_get.php', function(data){
+            let html = '<a href="index.php">Trang chủ</a>';
+            data.forEach(function(item){
+                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
+            });
+            $('#main-menu').html(html);
+        });
+    });
+    </script>
 </body>
 </html>
