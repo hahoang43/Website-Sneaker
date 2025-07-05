@@ -200,6 +200,6 @@ function updateCheckoutSummary() {
     document.getElementById('total-price').textContent = total.toLocaleString('vi-VN') + ' VNĐ';
 }
 </script>
-
+<script src="../js/auth.js"></script>
 </body>
 </html>
