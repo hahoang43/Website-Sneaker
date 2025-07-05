@@ -30,21 +30,6 @@ $totalPrice = 0;
         <a href="dangnhap.php" class="cart-btn"><i class="fa-solid fa-user"></i></a>
         <a href="giohang.php" class="cart-btn" style="position: relative;">
     <i class="fa-solid fa-cart-shopping" style="font-size: 20px;"></i>
-    <span id="cart-count"
-          style="
-              position: absolute;
-              top: -6px;
-              right: -10px;
-              background: red;
-              color: white;
-              font-size: 12px;
-              border-radius: 50%;
-              padding: 2px 6px;
-              min-width: 16px;
-              text-align: center;
-              line-height: 1;
-          ">0</span>
-         </a>
 
         
     </div>
@@ -93,7 +78,7 @@ $totalPrice = 0;
                 ?>
                 <tr>
                     <td><input type="checkbox" name="selected_items[]" value="<?= $index ?>" checked></td>
-                    <td><img src="<?= htmlspecialchars($item['image']) ?>" width="80"></td>
+                    <td><img src="../uploads/<?= htmlspecialchars($item['image']) ?>" width="80"></td>
                     <td><?= htmlspecialchars($item['name']) ?></td>
                      
                    <td>
