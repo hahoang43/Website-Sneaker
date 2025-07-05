@@ -91,7 +91,7 @@ $totalPrice = 0;
 </td>
 
 
-                    <td><a href="../backend/cart/remove_item.php?index=<?= $index ?>" onclick="return confirm('Xóa sản phẩm này?')">❌</a></td>
+                    <td><a href="../backend/cart/remove_item.php?index=<?= $index ?>" onclick="return confirm('Xóa sản phẩm này?')">Xóa</a></td>
                 </tr>
                 <?php endforeach; ?>
             </table>

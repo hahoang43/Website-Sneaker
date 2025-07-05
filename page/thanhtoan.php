@@ -110,7 +110,7 @@ foreach ($selectedIndexes as $index) {
                                 <?= number_format($item['price'] * $item['quantity'], 0, ',', '.') ?> VNĐ
                             </td>
                             <td>
-                                <a href="../backend/cart/remove_item.php?index=<?= $index ?>" onclick="return confirm('Xóa sản phẩm này?')">❌</a>
+                                <a href="../backend/cart/remove_item.php?index=<?= $index ?>" onclick="return confirm('Xóa sản phẩm này?')">Xóa</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

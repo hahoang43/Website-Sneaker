@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_feedback'])) {
         VALUES ('$firstname', '$lastname', '$email', '$phone', '$subject', '$note')");
 }
 
-// Lấy feedback mới nhất (giới hạn 5 feedback)
+
 $feedbacks = $db->select("SELECT * FROM FeedBack ORDER BY created_at DESC LIMIT 5");
 ?>
 
-<!-- Form feedback -->
+
 <form method="POST" class="review-form" style="margin-top:2rem;">
     <div class="review-title">Gửi phản hồi</div>
     <input class="review-input" type="text" name="firstname" placeholder="Họ" required>
