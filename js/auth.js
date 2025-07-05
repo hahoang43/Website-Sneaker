@@ -1,9 +1,9 @@
 // Tự động xác định đường dẫn tới giỏ hàng
 let gioHangLink = '';
 if (window.location.pathname.includes('/page/')) {
-  gioHangLink = '/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.php';
 } else {
-  gioHangLink = '/Website-Sneaker/page/giohang.html';
+  gioHangLink = '/Website-Sneaker/page/giohang.php';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -42,7 +42,7 @@ let dropdownItems = `
               </ul>
             </div>
           </div>
-          <a href="${gioHangLink}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
 
         // Đăng xuất
@@ -76,7 +76,7 @@ let dropdownItems = `
         // Nếu chưa đăng nhập
         signDiv.innerHTML = `
           <a href="dangnhap.html" class="cart-btn"><i class="fa-solid fa-user"></i></a>
-          <a href="giohang.html" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
       }
     } catch (err) {

@@ -92,7 +92,7 @@ foreach ($selectedIndexes as $index) {
                         <?php foreach ($selectedCart as $index => $item): ?>
                         <tr>
                             <td><input type="checkbox" name="selected_items[]" value="<?= $index ?>" checked></td>
-                            <td><img src="<?= htmlspecialchars($item['image']) ?>" width="80"></td>
+                           <td><img src="../uploads/<?= htmlspecialchars($item['image']) ?>" width="80"></td>
                             <td><?= htmlspecialchars($item['name']) ?></td>
                             <td>
                                 <select name="sizes[<?= $index ?>]" class="cart-size-select" data-index="<?= $index ?>">

@@ -42,23 +42,15 @@ if (!$row) {
             <input type="text">
             <i class="fas fa-search search-icon"></i>
         </div>
-        <!-- sign -->
+        
         <div class="sign">
-            <?php if (isset($_SESSION['user'])): ?>
-                <span class="user-name">
-                    <i class="fa-solid fa-user"></i>
-                    <?php echo htmlspecialchars($_SESSION['user']['username']); ?>
-                </span>
-                <a href="dangxuat.php" class="cart-btn">Đăng xuất</a>
-            <?php else: ?>
-                <a href="dangnhap.html" class="cart-btn">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-            <?php endif; ?>
-            <a href="giohang.php" class="cart-btn" id="cart-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
+   <a href="dangnhap.html" class="cart-btn">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <a href="giohang.php" class="cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+    </div>
     </div>
 
     <!-- MENU -->
@@ -74,7 +66,8 @@ if (!$row) {
             </div>
             <!-- Product Details -->
             <div class="product-detail-info">
-                <h1 class="product-title"><?php echo htmlspecialchars($row['title']); ?></h1>
+                <h1 id="product-title"><?php echo htmlspecialchars($row['title']); ?></h1>
+
                 <p class="product-price">Giá: <?php echo number_format($row['price'], 0, ',', '.'); ?>₫</p>
         
                 <!-- Size options -->
@@ -217,7 +210,7 @@ if (!$row) {
 $(document).ready(function() {
     $('.btn-add-cart').click(function() {
         const id = $('.btn-add-cart').data('id') || parseInt($('body').data('product-id')) || <?php echo (int)$row['id']; ?>;
-        const name = $('.product-title').text().trim();
+        const name = $('#product-title').text().trim();
         const price = <?php echo (int)$row['price']; ?>;
         const image = <?php echo json_encode($row['thumbnail']); ?>;
         const size = $('#size').val();

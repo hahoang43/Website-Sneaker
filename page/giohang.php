@@ -27,12 +27,7 @@ $totalPrice = 0;
         <i class="fas fa-search search-icon"></i>
     </div>
     <div class="sign">
-        <a href="dangnhap.php" class="cart-btn"><i class="fa-solid fa-user"></i></a>
-        <a href="giohang.php" class="cart-btn" style="position: relative;">
-    <i class="fa-solid fa-cart-shopping" style="font-size: 20px;"></i>
-
-        
-    </div>
+</div>
 </div>
 
 <!-- Menu -->
@@ -162,5 +157,6 @@ $totalPrice = 0;
 
 
 <script src="../js/cart.js"></script>
+
 </body>
 </html>
