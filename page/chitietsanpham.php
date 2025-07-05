@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp\htdocs\Website-Sneaker\page\chitietsanpham.php
 session_start();
 require_once '../backend/products/product_add.php';
 $product = new Product();
@@ -56,7 +55,7 @@ if (!$row) {
                     <i class="fa-solid fa-user"></i>
                 </a>
             <?php endif; ?>
-            <a href="giohang.html" class="cart-btn" id="cart-icon">
+            <a href="giohang.php" class="cart-btn" id="cart-icon">
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
         </div>
@@ -213,6 +212,38 @@ if (!$row) {
     });
     </script>
     <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+$(document).ready(function() {
+    $('.btn-add-cart').click(function() {
+        const id = $('.btn-add-cart').data('id') || parseInt($('body').data('product-id')) || <?php echo (int)$row['id']; ?>;
+        const name = $('.product-title').text().trim();
+        const price = <?php echo (int)$row['price']; ?>;
+        const image = <?php echo json_encode($row['thumbnail']); ?>;
+        const size = $('#size').val();
+        const quantity = $('#quantity').val();
 
+        $.ajax({
+            url: '../backend/cart/add_to_cart.php',
+            type: 'POST',
+            data: {
+                id: id,
+                name: name,
+                price: price,
+                image: image,
+                size: size,
+                quantity: quantity
+            },
+            success: function(response) {
+                alert("✅ Đã thêm vào giỏ hàng!");
+                
+            },
+            error: function() {
+                alert("❌ Có lỗi xảy ra khi thêm vào giỏ hàng!");
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

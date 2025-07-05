@@ -7,7 +7,7 @@
                 <li><a href="product.php">Quản Lí Sản Phẩm</a></li>
                 <li><a href="order.php">Quản Lí Đơn Hàng</a></li>
                 <li><a href="customer.php">Quản Lí Khách Hàng</a></li>
-                <li><a href="logout.php">Đăng Xuất</a></li>
+                <li><a href="../backend/auth/logout.php">Đăng Xuất</a></li>            
             </ul>
         </div>
     </div>
