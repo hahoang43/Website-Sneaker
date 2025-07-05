@@ -3,82 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <title>Trang cá nhân</title>
-  <link rel="stylesheet" href="../css/auth.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/user.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="../jquery-3.7.1.js"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/search.js"></script>
+  <style>
+    body {
+      background: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 16px;
+      color: #333;
+      margin: 0;
+    }
+    .main-content {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      gap: 24px;
+    }
+    .sidebar-actions {
+      width: 240px;
+      background: #fbe9e9;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .sidebar-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f79292;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar-btn:hover {
+      background: #e67373;
+    }
+    .profile-container {
+      flex: 1;
+      background: #fbe9e9;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .profile-container h2 {
+      text-align: center;
+      color: #d65a5a;
+      margin-bottom: 24px;
+      font-size: 1.8rem;
+    }
+    .profile-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .profile-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eacccc;
+    }
+    .profile-list li:last-child {
+      border-bottom: none;
+    }
+    #edit-profile-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      display: none;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .submit-btn, .cancel-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 10px;
+      border: none;
+    }
+    .submit-btn {
+      background-color: #f79292;
+      color: white;
+    }
+    .submit-btn:hover {
+      background-color: #e67373;
+    }
+    .cancel-btn {
+      background-color: #fbe9e9;
+      color: #333;
+    }
+    .cancel-btn:hover {
+      background-color: #f2d3d3;
+    }
+    
+  </style>
 </head>
 <body>
-     
-  <div class="profile-layout">
 
-    <!-- Sidebar bên trái -->
-    <div class="sidebar-actions">
-      <a href="../page/index.html" class="sidebar-btn">
-        <i class="fas fa-arrow-left"></i> Trang chủ
-      </a>
-      <button id="edit-profile-btn" class="sidebar-btn">
-        <i class="fas fa-pen"></i> Chỉnh sửa
-      </button>
-      <button id="change-password-btn" class="sidebar-btn">
-        <i class="fas fa-lock"></i> Đổi mật khẩu
-      </button>
-      <a href="donhangcuatoi.html" class="sidebar-btn">
-        <i class="fas fa-box"></i> Đơn hàng của tôi
-      </a>
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <h2><a href="index.html"><img src="../images/anh_banner/logo.jpg" alt="Logo"></a></h2>
+  </div>
+  <div class="search-container">
+    <input type="text" id="search-input">
+    <i class="fas fa-search search-icon" id="search-button"></i>
+  </div>
+  <div class="sign">
+    
+    <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="main-menu"></div>
+<script>
+  $(function () {
+    $.getJSON('../backend/categories/category_get.php', function (data) {
+      let html = '<a href="index.html">Trang chủ</a>';
+      data.forEach(function (item) {
+        html += '<a href="danhmuc.php?id=' + item.id + '">' + item.name + '</a>';
+      });
+      $('#main-menu').html(html);
+    });
+  });
+</script>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <!-- Sidebar -->
+  <div class="sidebar-actions">
+    
+    <button id="edit-profile-btn" class="sidebar-btn"><i class="fas fa-user-edit"></i> Chỉnh sửa</button>
+    <button id="change-password-btn" class="sidebar-btn"><i class="fas fa-key"></i> Đổi mật khẩu</button>
+    <button id="my-orders-btn" class="sidebar-btn"><i class="fas fa-box"></i> Đơn hàng của tôi</button>
+  </div>
+
+  <!-- Profile content dynamic -->
+  <div class="profile-container" id="profile-content">
+    <h2>Thông tin cá nhân</h2>
+    <div id="profile-info">
+      <div class="loading">Đang tải thông tin...</div>
     </div>
 
-    <!-- Nội dung chính -->
-    <div class="profile-container">
-      <h2>Thông tin cá nhân</h2>
-      <div id="profile-info">
-        <div class="loading">Đang tải thông tin...</div>
+    <!-- Form chỉnh sửa -->
+    <form id="edit-profile-form">
+      <div class="form-group">
+        <label for="edit-fullname">Họ tên</label>
+        <input type="text" id="edit-fullname" required>
       </div>
+      <div class="form-group">
+        <label for="edit-email">Email</label>
+        <input type="email" id="edit-email" required>
+      </div>
+      <div class="form-group">
+        <label for="edit-phone">Số điện thoại</label>
+        <input type="text" id="edit-phone">
+      </div>
+      <div class="form-group">
+        <label for="edit-address">Địa chỉ</label>
+        <input type="text" id="edit-address">
+      </div>
+      <button type="submit" class="submit-btn">Lưu</button>
+      <button type="button" id="cancel-edit" class="cancel-btn">Hủy</button>
+    </form>
+  </div>
+</div>
 
-      <!-- Form chỉnh sửa -->
-      <form id="edit-profile-form" style="display:none;">
-        <div class="form-group">
-          <label>Họ tên</label>
-          <input type="text" id="edit-fullname" required>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="edit-email" required>
-        </div>
-        <div class="form-group">
-          <label>Số điện thoại</label>
-          <input type="text" id="edit-phone">
-        </div>
-        <div class="form-group">
-          <label>Địa chỉ</label>
-          <input type="text" id="edit-address">
-        </div>
-        <button type="submit" class="submit-btn">Lưu thay đổi</button>
-        <button type="button" id="cancel-edit" class="cancel-btn">Hủy</button>
-      </form>
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-row">
+    <div class="footer-col">
+      <h4>Giới thiệu</h4>
+      <p>SNEAKERS - Cửa hàng giày uy tín, chất lượng hàng đầu Việt Nam. Chào mừng bạn đến với ngôi nhà Sneaker.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Địa chỉ</h4>
+      <p><i class="fa-solid fa-location-dot"></i> 123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh</p>
+    </div>
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <p><i class="fa-solid fa-phone"></i> 0123 456 789</p>
+      <p><i class="fa-solid fa-envelope"></i> contact@sneakers.vn</p>
     </div>
   </div>
-  <!-- ...existing code... -->
+</div>
 
+<!-- SCRIPT -->
+<script>
+  $(document).ready(function () {
+    let userData = null;
 
-  <script>
-    $(document).ready(function () {
-      let userData = null;
+    function renderProfile(u) {
+      $('#profile-info').html(`
+        <ul class="profile-list">
+          <li><b>Họ tên:</b> ${u.fullname}</li>
+          <li><b>Email:</b> ${u.email}</li>
+          <li><b>Số điện thoại:</b> ${u.phone_number || ''}</li>
+          <li><b>Địa chỉ:</b> ${u.address || ''}</li>
+          <li><b>Ngày tạo tài khoản:</b> ${u.created_at}</li>
+        </ul>
+      `);
+    }
 
-      function renderProfile(u) {
-        $('#profile-info').html(`
-          <ul class="profile-list">
-            <li><b>Họ tên:</b> ${u.fullname}</li>
-            <li><b>Email:</b> ${u.email}</li>
-            <li><b>Số điện thoại:</b> ${u.phone_number || ''}</li>
-            <li><b>Địa chỉ:</b> ${u.address || ''}</li>
-            <li><b>Ngày tạo tài khoản:</b> ${u.created_at}</li>
-          </ul>
-        `);
-      }
-
+    function loadProfileInfo() {
+      $('#edit-profile-form').hide();
+      $('#profile-info').show().html('<div class="loading">Đang tải thông tin...</div>');
       $.ajax({
         url: '../backend/user/get_profile.php',
         method: 'GET',
@@ -95,60 +253,65 @@
           $('#profile-info').html('<div class="error">Không thể tải thông tin cá nhân.</div>');
         }
       });
+    }
 
-      $('#edit-profile-btn').on('click', function () {
-        if (!userData) return;
-        $('#edit-fullname').val(userData.fullname);
-        $('#edit-email').val(userData.email);
-        $('#edit-phone').val(userData.phone_number);
-        $('#edit-address').val(userData.address);
-        $('#edit-profile-form').show();
-        $('#profile-info').hide();
-      });
+    // Load ban đầu
+    loadProfileInfo();
 
-      $('#cancel-edit').on('click', function () {
-        $('#edit-profile-form').hide();
-        $('#profile-info').show();
-      });
+    $('#edit-profile-btn').on('click', function () {
+      if (!userData) return;
+      $('#edit-fullname').val(userData.fullname);
+      $('#edit-email').val(userData.email);
+      $('#edit-phone').val(userData.phone_number);
+      $('#edit-address').val(userData.address);
+      $('#profile-info').hide();
+      $('#edit-profile-form').fadeIn();
+    });
 
-      $('#edit-profile-form').on('submit', function (e) {
-        e.preventDefault();
-        const data = {
-          fullname: $('#edit-fullname').val(),
-          email: $('#edit-email').val(),
-          phone_number: $('#edit-phone').val(),
-          address: $('#edit-address').val()
-        };
-
-        $.ajax({
-          url: '../backend/user/update_profile.php',
-          method: 'POST',
-          data: JSON.stringify(data),
-          contentType: 'application/json',
-          dataType: 'json',
-          success: function (res) {
-            if (res.status === 'success') {
-              userData.fullname = data.fullname;
-              userData.email = data.email;
-              userData.phone_number = data.phone_number;
-              userData.address = data.address;
-              renderProfile(userData);
-              $('#edit-profile-form').hide();
-              $('#profile-info').show();
-            } else {
-              alert(res.message || 'Cập nhật thất bại!');
-            }
-          },
-          error: function () {
-            alert('Không thể cập nhật thông tin.');
-          }
-        });
-      });
-
-      $('#change-password-btn').on('click', function () {
-        window.location.href = 'doimatkhau.html';
+    $('#cancel-edit').on('click', function () {
+      $('#edit-profile-form').fadeOut(function () {
+        $('#profile-info').fadeIn();
       });
     });
-  </script>
+
+    $('#edit-profile-form').on('submit', function (e) {
+      e.preventDefault();
+      const data = {
+        fullname: $('#edit-fullname').val(),
+        email: $('#edit-email').val(),
+        phone_number: $('#edit-phone').val(),
+        address: $('#edit-address').val()
+      };
+      $.ajax({
+        url: '../backend/user/update_profile.php',
+        method: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (res) {
+          if (res.status === 'success') {
+            userData = { ...userData, ...data };
+            loadProfileInfo();
+          } else {
+            alert(res.message || 'Cập nhật thất bại!');
+          }
+        },
+        error: function () {
+          alert('Không thể cập nhật thông tin.');
+        }
+      });
+    });
+
+    // Nạp trang đổi mật khẩu
+    $('#change-password-btn').on('click', function () {
+      $('#profile-content').load('doimatkhau.html');
+    });
+
+    // Nạp trang đơn hàng
+    $('#my-orders-btn').on('click', function () {
+      $('#profile-content').load('donhangcuatoi.html');
+    });
+  });
+</script>
 </body>
 </html>

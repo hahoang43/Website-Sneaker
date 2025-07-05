@@ -12,35 +12,5 @@ include "slider.php";
 </head>
 
 <body>
-    <!-- HEADER -->
-    <div class="header">
-         </div>
-
-    <!-- SIDEBAR (LEFT) -->
-    <div class="admin-layout">
-        <div class="admin-left-container" id="left">
-            <div class="admin-left">
-                <p>Menu</p>
-                <ul>
-                    <li>
-                        <a href="category.php">Danh Mục Sản Phẩm</a>
-                    </li>
-                    <li>
-                        <a href="product.php">Quản Lí Sản Phẩm</a>
-                    </li>
-                    <li><a href="order.php">Quản Lí Đơn Hàng</a></li>
-                    <li><a href="customer.php">Quản Lí Khách Hàng</a></li>
-                    <li><a href="admin_banner.php">Quản Lý Banner</a></li>
-                    <li><a href="../backend/auth/logout.php">Đăng Xuất</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- Right -->
-        <div class="admin-category-right"></div>
-    </div>
-    <!-- FOOTER -->
-     <div class="footer">
-         </div>
-
 </body>
 </html>
