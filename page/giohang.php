@@ -44,9 +44,9 @@ $totalPrice = 0;
               text-align: center;
               line-height: 1;
           ">0</span>
-</a>
+         </a>
 
-        </a>
+        
     </div>
 </div>
 
@@ -111,7 +111,10 @@ $totalPrice = 0;
                     <td>
                         <input type="number" name="quantities[<?= $index ?>]" value="<?= $item['quantity'] ?>" min="1">
                     </td>
-                    <td data-total><?= number_format($subtotal, 0, ',', '.') ?> VNĐ</td>
+                   <td data-price="<?= $item['price'] ?>" data-total>
+    <?= number_format($subtotal, 0, ',', '.') ?> VNĐ
+</td>
+
 
                     <td><a href="../backend/cart/remove_item.php?index=<?= $index ?>" onclick="return confirm('Xóa sản phẩm này?')">❌</a></td>
                 </tr>
