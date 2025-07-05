@@ -42,7 +42,7 @@ let dropdownItems = `
               </ul>
             </div>
           </div>
-          <a href="${gioHangLink}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
 
         // Đăng xuất
@@ -76,6 +76,7 @@ let dropdownItems = `
         // Nếu chưa đăng nhập
         signDiv.innerHTML = `
           <a href="dangnhap.php" class="cart-btn"><i class="fa-solid fa-user"></i></a>
+
           <a href="giohang.php" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
         `;
       }

@@ -1,10 +1,5 @@
 <?php
 session_start();
 $cart = $_SESSION['cart'] ?? [];
-$count = 0;
-
-foreach ($cart as $item) {
-    $count += $item['quantity'];
-}
-
+$count = array_sum(array_column($cart, 'quantity'));
 echo json_encode(['count' => $count]);

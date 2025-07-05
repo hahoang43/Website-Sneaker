@@ -1,3 +1,7 @@
+<?php
+include "header.php";
+include "slider.php";
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -10,8 +14,7 @@
 <body>
     <!-- HEADER -->
     <div class="header">
-        <p>Quản lý Admin</p>
-    </div>
+         </div>
 
     <!-- SIDEBAR (LEFT) -->
     <div class="admin-layout">
@@ -35,5 +38,9 @@
         <!-- Right -->
         <div class="admin-category-right"></div>
     </div>
+    <!-- FOOTER -->
+     <div class="footer">
+         </div>
+
 </body>
 </html>

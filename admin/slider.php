@@ -1,5 +1,4 @@
-<!-- SIDEBAR (LEFT) -->
-    <div class="admin-left-container" id="left">
+<div class="admin-left-container" id="left">
         <div class="admin-left">
             <ul>
                 <p>Menu</p>

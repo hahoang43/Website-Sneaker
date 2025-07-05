@@ -13,7 +13,7 @@ function updateCartCount() {
         .catch(() => console.error("❌ Không thể lấy dữ liệu giỏ hàng."));
 }
 
-// ✅ Cập nhật tổng số lượng + tổng tiền
+// ✅ Cập nhật tổng số lượng + tổng tiền bên phải
 function updateCartSummary() {
     let totalQuantity = 0;
     let totalPrice = 0;
@@ -21,12 +21,12 @@ function updateCartSummary() {
     document.querySelectorAll('table tr').forEach(row => {
         const checkbox = row.querySelector('input[type="checkbox"]');
         const qtyInput = row.querySelector('input[type="number"]');
-        const priceCell = row.querySelector('td[data-price]');
+        const priceAttr = row.querySelector('td[data-price]');
         const totalCell = row.querySelector('td[data-total]');
 
-        if (qtyInput && priceCell && totalCell) {
+        if (qtyInput && priceAttr && totalCell) {
             const quantity = parseInt(qtyInput.value) || 0;
-            const price = parseInt(priceCell.getAttribute('data-price')) || 0;
+            const price = parseInt(priceAttr.getAttribute('data-price')) || 0;
             const lineTotal = quantity * price;
 
             totalCell.textContent = lineTotal.toLocaleString('vi-VN') + ' VNĐ';
@@ -38,12 +38,17 @@ function updateCartSummary() {
         }
     });
 
-    document.getElementById('total-product').textContent = totalQuantity;
-    document.getElementById('total-price').textContent = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
-    document.getElementById('subtotal').textContent = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
+    // ✅ Cập nhật khu vực đơn hàng bên phải
+    const totalProductEl = document.getElementById('total-product');
+    const totalPriceEl = document.getElementById('total-price');
+    const subtotalEl = document.getElementById('subtotal');
+
+    if (totalProductEl) totalProductEl.textContent = totalQuantity;
+    if (totalPriceEl) totalPriceEl.textContent = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
+    if (subtotalEl) subtotalEl.textContent = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
 }
 
-// ✅ Xử lý cập nhật size sản phẩm
+// ✅ Gửi size mới về server nếu người dùng đổi
 function setupSizeChange() {
     document.querySelectorAll('.cart-size-select').forEach(select => {
         select.addEventListener('change', function() {
@@ -70,47 +75,29 @@ function setupSizeChange() {
     });
 }
 
-// ✅ Xử lý thêm vào giỏ hàng
-function setupAddToCart() {
-    document.querySelectorAll('.add-to-cart-btn, .btn-add-cart').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const formData = new FormData();
-            formData.append('id', btn.dataset.id);
-            formData.append('name', btn.dataset.name);
-            formData.append('price', btn.dataset.price);
-            formData.append('image', btn.dataset.image);
-            formData.append('size', btn.dataset.size || '');
-            formData.append('quantity', btn.dataset.quantity || 1);
-
-            fetch('../backend/cart/add_to_cart.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                alert(data.message || "✅ Đã thêm vào giỏ hàng!");
-                updateCartCount();
-            })
-            .catch(() => alert("❌ Có lỗi xảy ra khi thêm giỏ hàng!"));
-        });
-    });
-}
-
-// ✅ Gắn sự kiện toàn cục sau khi trang load
+// ✅ Khởi động toàn bộ sau khi DOM sẵn sàng
 document.addEventListener('DOMContentLoaded', function () {
     updateCartCount();
     updateCartSummary();
-    setupAddToCart();
     setupSizeChange();
+
+    // ✅ Mỗi khi người dùng thay đổi checkbox, số lượng hoặc size → cập nhật lại
+    document.addEventListener('input', function (e) {
+        if (
+            e.target.matches('input[type="number"]') ||
+            e.target.matches('input[type="checkbox"]')
+        ) {
+            updateCartSummary();
+            updateCartCount();
+        }
+    });
 
     document.addEventListener('change', function (e) {
         if (
             e.target.matches('input[type="checkbox"]') ||
-            e.target.matches('input[type="number"]') ||
             e.target.matches('select.cart-size-select')
         ) {
             updateCartSummary();
-            updateCartCount();
         }
     });
 });
