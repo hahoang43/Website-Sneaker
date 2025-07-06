@@ -114,20 +114,10 @@ if (!$row) {
             </p>
         </div>
 
-       
-        <div class="review-form">
-    <h3 class="review-title">Gửi đánh giá của bạn</h3>
-    <form>
-        <label for="reviewerName" class="review-label">Tên của bạn:</label>
-        <input type="text" id="reviewerName" name="reviewerName" class="review-input">
-        <label for="reviewContent" class="review-label">Nội dung đánh giá:</label>
-        <textarea id="reviewContent" name="reviewContent" rows="4" class="review-textarea"></textarea>
-
-        <button type="submit" class="review-button">Gửi đánh giá</button>
-    </form>
-</div>
 
     </div>
+      <!-- Feedback/Review Form -->
+    <?php include 'feeback.php'; ?>
      <!-- Sản phẩm khác -->
         <div class="related-products">
             <h2>Sản phẩm khác</h2>
@@ -164,8 +154,7 @@ if (!$row) {
         </div>
     
     </div>
-    <!-- Feedback/Review Form -->
-    <?php include 'feeback.php'; ?>
+  
  <!-- Footer -->
 <div class="footer">
     <div class="footer-row">

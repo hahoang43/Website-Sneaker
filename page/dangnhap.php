@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php
+?>
 <html>
 <head>
     <title>SNEAKERS</title>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery-3.7.1.js"> </script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
 
     <!-- sign -->
     <div class="sign">
-   <a href="dangnhap.html" class="cart-btn">
+   <a href="dangnhap.php" class="cart-btn">
         <i class="fa-solid fa-user"></i>
     </a>
     <a href="giohang.php" class="cart-btn">
@@ -38,7 +40,17 @@
 
 <!-- Menu -->
     <div class="menu" id="main-menu"></div>
-
+    <script>
+    $(function(){
+        $.getJSON('../backend/categories/category_get.php', function(data){
+            let html = '<a href="index.php">Trang chủ</a>';
+            data.forEach(function(item){
+                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
+            });
+            $('#main-menu').html(html);
+        });
+    });
+    </script>
     <!-- Auth Section -->
     <div class="auth-bg">
         <div class="auth-container">
@@ -108,18 +120,9 @@
         </div>
     </div>
 </div>
-<script src="../jquery-3.7.1.js"> </script>
+
+    
 <script src="../js/dangnhap.js"> </script>
-<script>
-    $(function(){
-        $.getJSON('../backend/categories/category_get.php', function(data){
-            let html = '<a href="index.php">Trang chủ</a>';
-            data.forEach(function(item){
-                html += `<a href="danhmuc.php?id=${item.id}">${item.name}</a>`;
-            });
-            $('#main-menu').html(html);
-        });
-    });
-    </script>
+
 </body>
 </html>
