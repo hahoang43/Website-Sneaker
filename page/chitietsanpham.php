@@ -146,7 +146,7 @@ if (!$row) {
             ?>
             </div>
             <?php if (count($relatedProducts) > 4): ?>
-            <div class="related-pagination" style="text-align:center;margin-top:10px;">
+            <div class="related-pagination" style="text-align:center;margin-top:10px;margin-bottom:40px;">
                 <button id="prev-related" disabled>&laquo; Trước</button>
                 <button id="next-related">Sau &raquo;</button>
             </div>

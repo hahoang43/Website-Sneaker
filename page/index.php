@@ -98,7 +98,7 @@ $banners = $product->query("SELECT image FROM Banner ORDER BY id DESC");
                         <div class="product-name"><?php echo htmlspecialchars($row['title']); ?></div>
                         <div class="product-price"><?php echo number_format($row['price'], 0, ',', '.'); ?> VNĐ</div>
                     </a>
-                    <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
@@ -115,7 +115,7 @@ $banners = $product->query("SELECT image FROM Banner ORDER BY id DESC");
                         <div class="product-name"><?php echo htmlspecialchars($row['title']); ?></div>
                         <div class="product-price"><?php echo number_format($row['price'], 0, ',', '.'); ?> VNĐ</div>
                     </a>
-                    <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                 
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>

@@ -462,8 +462,8 @@ hr {
 }
 .product-item {
     width: 240px;
-    height: 380px;
-    background: #fff;
+
+    background: #fae4e4;
     border: 1px solid #eee;
     border-radius: 6px;
     padding: 10px;

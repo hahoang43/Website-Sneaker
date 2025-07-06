@@ -51,7 +51,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
   if (result.role === 'admin') {
     window.location.href = '../admin/admin.php';
   } else {
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
   }
   } else {
     alert(result.message || 'Đăng nhập thất bại!');

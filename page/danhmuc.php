@@ -163,7 +163,7 @@ $result = $product->query($sql);
                     echo '<div class="product-name">' . htmlspecialchars($row['title']) . '</div>';
                     echo '</a>';
                     echo '<div class="product-price">' . number_format($row['price'], 0, ',', '.') . ' VNĐ</div>';
-                    echo '<div class="add-to-cart-btn"> Thêm vào giỏ hàng </div>';
+                 
                     echo '</div>';
                 }
             } else {
